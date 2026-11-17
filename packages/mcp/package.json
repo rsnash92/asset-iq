@@ -1,0 +1,31 @@
+{
+  "name": "@asset-iq/mcp",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "asset-iq-mcp": "./src/stdio.ts"
+  },
+  "scripts": {
+    "stdio": "tsx src/stdio.ts",
+    "http": "tsx src/http.ts",
+    "create-key": "tsx src/create-key.ts",
+    "lint": "eslint src",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.43",
+    "eslint": "^9.39.5",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.73.0",
+    "vitest": "5.1.0"
+  },
+  "dependencies": {
+    "@asset-iq/core": "workspace:*",
+    "@modelcontextprotocol/sdk": "1.32.2",
+    "@supabase/supabase-js": "2.119.0",
+    "zod": "4.6.7"
+  }
+}

@@ -1,5 +1,7 @@
 # Asset IQ
 
+[![CI](https://github.com/rsnash92/asset-iq/actions/workflows/ci.yml/badge.svg)](https://github.com/rsnash92/asset-iq/actions/workflows/ci.yml)
+
 **AI search and assistant for a B2B content library.** Ask questions in plain English and get streamed answers with page-level citations. An agent can find, filter, summarise and draft from your documents, and the same tools are exposed to Claude Desktop/Code through an MCP server. Retrieval is hybrid (pgvector + Postgres full-text, fused with Reciprocal Rank Fusion, optional Cohere rerank). An eval suite measures it, and the vector backend can be swapped between pgvector and MongoDB Atlas.
 
 > 🎥 Demo video: _TODO_ · 🌐 Live demo: _TODO (not deployed yet)_

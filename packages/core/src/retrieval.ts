@@ -1,4 +1,4 @@
-import { env, RETRIEVAL } from "./config";
+import { EMBEDDING_DIMS, env, RETRIEVAL } from "./config";
 import type { RequestContext } from "./context";
 import { embedQuery } from "./llm";
 import { rerank } from "./rerank";
@@ -35,7 +35,7 @@ export async function retrieve(ctx: RequestContext, p: RetrieveParams): Promise<
   const store = getVectorStore(ctx.db, backend);
 
   const t0 = Date.now();
-  const embedding = mode === "keyword" ? new Array<number>(1536).fill(0) : await embedQuery(ctx, p.query);
+  const embedding = mode === "keyword" ? new Array<number>(EMBEDDING_DIMS).fill(0) : await embedQuery(ctx, p.query);
   const t1 = Date.now();
   const candidates = await store.hybridSearch({
     ownerId: ctx.ownerId,

@@ -26,7 +26,7 @@ async function reachable() {
 }
 const up = await reachable();
 
-const basis = (i: number) => Array.from({ length: 1536 }, (_, j) => (j === i ? 1 : j === i + 1 ? 0.1 : 0));
+const basis = (i: number) => Array.from({ length: 768 }, (_, j) => (j === i ? 1 : j === i + 1 ? 0.1 : 0));
 const chunk = (over: Partial<ChunkInput> & Pick<ChunkInput, "id" | "ownerId" | "content" | "embedding">): ChunkInput => ({
   documentId: "doc-1", chunkIndex: 0, pageStart: 1, pageEnd: 1, tokenCount: 10, title: "Doc", contentType: "guide",
   industry: "construction", publishedAt: "2022-03-01", ...over,

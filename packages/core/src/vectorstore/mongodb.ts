@@ -1,5 +1,5 @@
 import { MongoClient, type Collection, type Document } from "mongodb";
-import { env, RETRIEVAL } from "../config";
+import { EMBEDDING_DIMS, env, RETRIEVAL } from "../config";
 import { AppError } from "../errors";
 import type { ChunkInput, ScoredChunk } from "../types";
 import { reciprocalRankFusion, type Ranked } from "./rrf";
@@ -39,7 +39,7 @@ export const MONGO_INDEX_DEFINITIONS = [
     type: "vectorSearch",
     definition: {
       fields: [
-        { type: "vector", path: "embedding", numDimensions: 1536, similarity: "cosine" },
+        { type: "vector", path: "embedding", numDimensions: EMBEDDING_DIMS, similarity: "cosine" },
         { type: "filter", path: "ownerId" },
         { type: "filter", path: "contentType" },
         { type: "filter", path: "industry" },

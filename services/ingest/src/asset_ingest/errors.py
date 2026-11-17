@@ -28,4 +28,4 @@ class DatabaseError(IngestError):
 
 
 class EmbeddingConfigError(EmbeddingError):
-    user_message = "The ingest service has no embedding API key configured. Set OPENAI_API_KEY and re-ingest."
+    user_message = "The embedding model isn't available on the ingest service. Check its logs and re-ingest."

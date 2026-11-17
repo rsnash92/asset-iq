@@ -12,8 +12,9 @@ const EnvSchema = z.object({
   ANTHROPIC_API_KEY: z.string().optional(),
   CHAT_MODEL: z.string().default("claude-sonnet-5-5"),
   FAST_MODEL: z.string().default("claude-haiku-5-5"),
-  OPENAI_API_KEY: z.string().optional(),
-  EMBEDDING_MODEL: z.string().default("text-embedding-3-small"),
+  EMBEDDING_MODEL: z.string().default("nomic-ai/nomic-embed-text-v1.5"),
+  /** service that owns the embedding model (POST /embed); defaults to the ingest service */
+  EMBEDDINGS_URL: z.string().optional(),
   COHERE_API_KEY: z.string().optional(),
   RERANK_MODEL: z.string().default("rerank-v3.5"),
   RERANK_ENABLED: z
@@ -48,6 +49,9 @@ export function supabaseUrl(): string {
   if (!url) throw new Error("SUPABASE_URL / NEXT_PUBLIC_SUPABASE_URL is not set");
   return url;
 }
+
+/** Must match vector(768) in the schema and the ingest service's model. */
+export const EMBEDDING_DIMS = 768;
 
 /** Retrieval defaults (see docs/DECISIONS.md). */
 export const RETRIEVAL = {

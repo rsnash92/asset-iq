@@ -9,7 +9,7 @@ const URL_ = process.env.SUPABASE_URL ?? "http://127.0.0.1:55321";
 const SERVICE = process.env.SUPABASE_SERVICE_ROLE_KEY;
 const up = SERVICE ? await fetch(`${URL_}/auth/v1/health`, { headers: { apikey: SERVICE } }).then((r) => r.ok, () => false) : false;
 
-const basis = (i: number) => Array.from({ length: 1536 }, (_, j) => (j === i ? 1 : j === i + 1 ? 0.1 : 0));
+const basis = (i: number) => Array.from({ length: 768 }, (_, j) => (j === i ? 1 : j === i + 1 ? 0.1 : 0));
 
 describe.skipIf(!up)("PgVectorStore (local Supabase)", () => {
   const admin = up ? createClient<Database>(URL_, SERVICE!, { auth: { persistSession: false } }) : (null as never);

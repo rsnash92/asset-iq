@@ -10,9 +10,10 @@ class Settings(BaseSettings):
 
     supabase_url: str = "http://127.0.0.1:55321"
     supabase_service_role_key: str = ""
-    openai_api_key: str = ""
-    embedding_model: str = "text-embedding-3-small"
-    embedding_dimensions: int = 1536
+    embedding_model: str = "nomic-ai/nomic-embed-text-v1.5"
+    embedding_dimensions: int = 768
+    embedding_cache_dir: str | None = None  # FASTEMBED_CACHE_PATH-style dir; baked into the image
+    embedding_warmup: bool = True
     ingest_shared_secret: str = ""
     poll_interval_seconds: float = 5.0
     worker_enabled: bool = True
@@ -20,7 +21,7 @@ class Settings(BaseSettings):
 
     chunk_max_tokens: int = 500
     chunk_overlap_tokens: int = 75
-    embed_batch_size: int = 100
+    embed_batch_size: int = 32
     http_timeout_seconds: float = 30.0
 
 

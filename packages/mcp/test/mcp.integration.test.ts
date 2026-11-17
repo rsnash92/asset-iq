@@ -49,7 +49,7 @@ describe.skipIf(!up)("MCP server over streamable HTTP (local Supabase)", () => {
     keyA = k.key;
     await admin.from("api_keys").insert({ owner_id: a, name: "test", key_prefix: k.prefix, key_hash: k.hash }).throwOnError();
 
-    const vec = `[${new Array(1536).fill(0.01).join(",")}]`;
+    const vec = `[${new Array(768).fill(0.01).join(",")}]`;
     const insDoc = async (owner: string, title: string) => {
       const { data } = await admin
         .from("documents")

@@ -19,7 +19,7 @@
         │ packages/mcp  │  stdio + stateless streamable HTTP, API-key auth
         └───────────────┘
 
- Supabase (Auth · Storage · Postgres+pgvector)  ◄── services/ingest (FastAPI)
+ Supabase (Auth · Storage · Postgres+pgvector)  ◄── services/ingest (FastAPI + local embedding model; POST /ingest, POST /embed)
    documents, chunks(fts, hnsw), query_logs,          claim_document → extract per page
    api_keys, rate_limits + RLS                         → chunk → embed → replace_document_chunks
    RPC: match_chunks_hybrid, consume_rate_limit,
@@ -33,7 +33,7 @@
 1. `requireUser` (cookie session or `Authorization: Bearer <supabase token>`) → user-scoped client, RLS applies.
 2. `enforceRateLimit('chat')` → 429 + `Retry-After` when exceeded.
 3. Last 6 messages; if there's history, Haiku rewrites the question into a standalone query.
-4. `retrieve()` → embed (OpenAI) → `match_chunks_hybrid` (vector top 50 + FTS top 50 → RRF) → optional Cohere rerank of 30 → top 8.
+4. `retrieve()` → embed (local nomic model via the ingest service's `/embed`) → `match_chunks_hybrid` (vector top 50 + FTS top 50 → RRF) → optional Cohere rerank of 30 → top 8.
 5. Excerpts numbered and delimited in the user turn; Sonnet streams the answer (`effort: low`).
 6. A `data-sources` part is streamed first (citations + debug scores); text follows.
 7. `onEnd` writes a `query_logs` row (tokens, cost, latency, chunk IDs).

@@ -20,9 +20,9 @@ One entry per non-obvious decision: **what** was chosen, **why**, and the **alte
 
 ## 2026-11-17 — tiktoken `cl100k_base` for token counting
 
-**What:** Token counts (chunk sizing and `chunks.token_count`) use tiktoken's `cl100k_base`, the tokenizer of `text-embedding-3-small`.
+**What:** Token counts (chunk sizing and `chunks.token_count`) use tiktoken's `cl100k_base`.
 
-**Why:** The hard limit that matters at ingest time is the embedding model's input; counting with its own tokenizer makes "≤ 500 tokens" exact for embeddings. Claude's tokenizer differs, but the answer prompt has ample headroom, so an approximate count there is fine. The encoding is pre-downloaded in the Docker image so containers don't fetch it at runtime.
+**Why:** A fast, deterministic, widely understood unit for sizing chunks. The embedding model (nomic, BERT WordPiece tokenizer) counts slightly differently, but its 8,192-token context leaves ample headroom, so "≈500 tokens" never truncates. Claude's tokenizer also differs, but the answer prompt has ample headroom, so an approximate count there is fine. The encoding is pre-downloaded in the Docker image so containers don't fetch it at runtime.
 
 **Alternatives:** Character heuristics (÷4) — off by 20–40% on regulation text with numbers and acronyms; Anthropic token counting API — a network call per chunk for no benefit at ingest.
 
@@ -50,13 +50,17 @@ One entry per non-obvious decision: **what** was chosen, **why**, and the **alte
 
 **Alternatives:** Client-side delete + batched inserts through PostgREST (non-atomic, readers can see a gap); upsert on `(document_id, chunk_index)` (leaves orphan chunks when a new version has fewer chunks).
 
-## 2026-11-17 — Embedding calls over plain httpx with backoff and jitter
+## 2026-11-17 — Local open-source embeddings (nomic-embed-text-v1.5) instead of OpenAI
 
-**What:** The ingest service calls the OpenAI embeddings endpoint directly with `httpx`: batches of 100 inputs, 30 s timeout, up to 5 attempts on 408/409/429/5xx/transport errors with exponential backoff (1, 2, 4, 8 s) plus jitter, honouring `Retry-After`. Non-retryable 4xx errors fail fast. Vectors are re-ordered by `index` and dimension-checked.
+**What:** Embeddings come from `nomic-ai/nomic-embed-text-v1.5` (768-d, Apache-2.0) running on CPU via fastembed (ONNX Runtime, no PyTorch) inside the ingest service. The service embeds chunks at ingest time and exposes `POST /embed` (shared-secret auth, ≤32 texts, ≤8,000 chars each) so the web app and MCP server embed *queries* with the exact same model. Vectors are L2-normalised. The model is baked into the Docker image and warmed at startup. Schema moved from `vector(1536)` to `vector(768)` (migration 5).
 
-**Why:** One small, fully testable function (mocked with `respx`) instead of a heavyweight SDK in the container; behaviour under failure is explicit and covered by tests.
+**Why:** Decision to use no OpenAI dependency. A local model means no API key, no per-token cost and no data leaving the deployment. Nomic was picked over BGE/GTE/Arctic because its 8,192-token context fits our ~500-token chunks plus title prefix without truncation (most small models stop at 512 BERT tokens, which would cut the end off many chunks), and it scores well on retrieval benchmarks. Having one service own the model means indexing and querying can't drift in model, prefixes or normalisation.
 
-**Alternatives:** The `openai` SDK (has its own retries, but less visible and adds a dependency); the Batch API (50% cheaper, but asynchronous with hours of latency — wrong for interactive uploads).
+**Gotcha found while wiring it:** nomic is trained with task prefixes (`search_document: ` / `search_query: `), but fastembed's `query_embed`/`passage_embed` do **not** add them for this model (verified: `query_embed(x)` equals `embed(x)` exactly). The `Embedder` adds them explicitly per model, and a unit test pins this.
+
+**Trade-offs:** CPU throughput is ~4 chunks/s on a laptop (the full 38-document corpus takes a few minutes, once). Query embedding adds one internal HTTP hop (~tens of ms) and makes the ingest service part of the query path, so in production it must run with ≥1 replica (Azure Container Apps min-replicas=1). The image is ~0.5 GB larger.
+
+**Alternatives:** Voyage AI (Anthropic's recommended embeddings partner — strong quality, but another paid API key); embedding queries in Node with transformers.js (two runtimes to keep identical); Ollama (another daemon to run); the quantised `-Q` nomic variant (4× smaller, slightly lower quality — a config switch if image size matters).
 
 ## 2026-11-17 — Sample corpus: UK HSE publications under the Open Government Licence
 

@@ -16,7 +16,6 @@
   },
   "dependencies": {
     "@ai-sdk/anthropic": "4.0.105",
-    "@ai-sdk/openai": "4.0.118",
     "@supabase/supabase-js": "2.119.0",
     "ai": "7.0.173",
     "cohere-ai": "8.3.1",

@@ -4,6 +4,8 @@ from fastapi.testclient import TestClient
 
 from asset_ingest.app import create_app
 from asset_ingest.config import Settings
+from asset_ingest.embeddings import Embedder
+from tests.fakes import FakeModel
 
 SB = "http://sb.test"
 DOC_ID = "00000000-0000-0000-0000-000000000001"
@@ -15,14 +17,41 @@ def client() -> TestClient:
         supabase_service_role_key="sb_secret_x",
         ingest_shared_secret="s3cret",
         worker_enabled=False,
-        openai_api_key="",
+        embedding_dimensions=4,
     )
-    return TestClient(create_app(settings))
+    return TestClient(
+        create_app(settings, Embedder(settings.embedding_model, dimensions=4, model=FakeModel()))
+    )
 
 
 def test_health():
     with client() as c:
-        assert c.get("/health").json() == {"status": "ok", "worker": False}
+        body = c.get("/health").json()
+    assert body["status"] == "ok" and body["worker"] is False
+    assert body["embedding_model"] == "nomic-ai/nomic-embed-text-v1.5"
+
+
+def test_embed_requires_secret_and_returns_normalised_query_vectors():
+    with client() as c:
+        assert c.post("/embed", json={"texts": ["q"]}).status_code == 401
+        r = c.post(
+            "/embed",
+            json={"texts": ["permits", "ladders"], "kind": "query"},
+            headers={"Authorization": "Bearer s3cret"},
+        )
+    assert r.status_code == 200
+    body = r.json()
+    assert body["dimensions"] == 4 and len(body["embeddings"]) == 2
+    assert body["embeddings"][0] == [1.0, 0.0, 0.0, 0.0]
+
+
+def test_embed_validates_input_bounds():
+    auth = {"Authorization": "Bearer s3cret"}
+    with client() as c:
+        assert c.post("/embed", json={"texts": []}, headers=auth).status_code == 422
+        assert c.post("/embed", json={"texts": ["x"] * 33}, headers=auth).status_code == 422
+        assert c.post("/embed", json={"texts": ["x" * 8001]}, headers=auth).status_code == 422
+        assert c.post("/embed", json={"texts": ["x"], "kind": "other"}, headers=auth).status_code == 422
 
 
 def test_ingest_requires_secret():

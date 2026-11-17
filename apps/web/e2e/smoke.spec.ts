@@ -9,8 +9,9 @@ const MAILPIT = process.env.MAILPIT_URL ?? "http://127.0.0.1:55324";
 const FULL = process.env.E2E_FULL === "1";
 
 /** Minimal valid one-page PDF with real text (no deps). */
-function tinyPdf(text: string): Buffer {
-  const content = `BT /F1 12 Tf 72 720 Td (${text.replace(/[()\\]/g, "")}) Tj ET`;
+function tinyPdf(lines: string[]): Buffer {
+  // one text line per entry, 16pt apart (the ingest service rejects < 200 chars as "scanned")
+  const content = `BT /F1 11 Tf 72 720 Td 16 TL ${lines.map((l) => `(${l.replace(/[()\\]/g, "")}) Tj T*`).join(" ")} ET`;
   const objs = [
     "<< /Type /Catalog /Pages 2 0 R >>",
     "<< /Type /Pages /Kids [3 0 R] /Count 1 >>",
@@ -61,7 +62,14 @@ test("sign in → upload → ask → see citation", async ({ page }) => {
 
   // upload
   const fact = "The Asset IQ test permit expires after exactly seventeen days on site";
-  await page.getByTestId("file-input").setInputFiles({ name: "permit-policy.pdf", mimeType: "application/pdf", buffer: tinyPdf(fact) });
+  const pdf = tinyPdf([
+    "Asset IQ test permit policy.",
+    `${fact}.`,
+    "Permits are issued by the site manager before any hot work or confined space entry begins.",
+    "Each permit lists the hazards, the precautions and the people authorised to do the work.",
+    "Expired permits must be returned to the site office and filed for twelve months.",
+  ]);
+  await page.getByTestId("file-input").setInputFiles({ name: "permit-policy.pdf", mimeType: "application/pdf", buffer: pdf });
   await page.getByLabel("Title", { exact: true }).fill("E2E permit policy");
   await page.getByLabel("Industry", { exact: true }).fill("construction");
   await page.getByRole("button", { name: "Upload" }).click();

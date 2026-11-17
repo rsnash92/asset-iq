@@ -1,5 +1,5 @@
 /**
- * USD per 1M tokens. Source: Anthropic / OpenAI public price lists (Nov 2026).
+ * USD per 1M tokens. Source: Anthropic public price list (Nov 2026).
  * Keep in config, not code paths, so cost reporting can be audited and updated.
  */
 export const MODEL_PRICING: Record<string, { input: number; output: number }> = {
@@ -8,9 +8,9 @@ export const MODEL_PRICING: Record<string, { input: number; output: number }> = 
   "claude-opus-5-5": { input: 4.0, output: 20.0 },
 };
 
+/** Local open-source embeddings run on our own CPU: no per-token charge. */
 export const EMBEDDING_PRICING: Record<string, number> = {
-  "text-embedding-3-small": 0.02,
-  "text-embedding-3-large": 0.13,
+  "nomic-ai/nomic-embed-text-v1.5": 0,
 };
 
 /** Cohere Rerank is billed per search (1 query × ≤100 docs). */

@@ -5,7 +5,8 @@ COPY --from=ghcr.io/astral-sh/uv:0.11.21 /uv /uvx /bin/
 ENV UV_COMPILE_BYTECODE=1 \
     UV_LINK_MODE=copy \
     PYTHONUNBUFFERED=1 \
-    TIKTOKEN_CACHE_DIR=/opt/tiktoken
+    TIKTOKEN_CACHE_DIR=/opt/tiktoken \
+    EMBEDDING_CACHE_DIR=/opt/models
 
 WORKDIR /app
 
@@ -16,9 +17,10 @@ RUN uv sync --frozen --no-dev --no-install-project
 COPY README.md ./
 COPY src ./src
 RUN uv sync --frozen --no-dev \
- && uv run --no-sync python -c "import tiktoken; tiktoken.get_encoding('cl100k_base')"
+ && uv run --no-sync python -c "import tiktoken; tiktoken.get_encoding('cl100k_base')" \
+ && uv run --no-sync python -c "from fastembed import TextEmbedding; TextEmbedding('nomic-ai/nomic-embed-text-v1.5', cache_dir='/opt/models')"
 
-RUN useradd --create-home --uid 10001 app && chown -R app /opt/tiktoken
+RUN useradd --create-home --uid 10001 app && chown -R app /opt/tiktoken /opt/models
 USER app
 
 EXPOSE 8000

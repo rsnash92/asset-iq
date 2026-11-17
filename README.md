@@ -12,7 +12,7 @@ See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for the diagram and request flo
 |---|---|
 | App + API | Next.js 16 (App Router), TypeScript, Tailwind, shadcn/ui, Vercel AI SDK |
 | Models | Claude Sonnet 5.5 (answers, agent), Claude Haiku 5.5 (query rewriting, judging) — env-configurable |
-| Embeddings | OpenAI `text-embedding-3-small` (1536-d), same model in ingest and query |
+| Embeddings | Local open-source `nomic-embed-text-v1.5` (768-d, fastembed/ONNX) in the ingest service — no API key, no per-call cost; the same service embeds queries via `POST /embed` |
 | Data | Supabase: Auth (magic link), Storage, Postgres + pgvector + FTS, RLS everywhere |
 | Ingestion | Python 3.12, FastAPI, PyMuPDF, tiktoken — Docker |
 | Alt. vector store | MongoDB Atlas Vector Search + Atlas Search |
@@ -24,6 +24,7 @@ See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for the diagram and request flo
 All decisions, with alternatives, are in [docs/DECISIONS.md](docs/DECISIONS.md). Highlights:
 
 - **Chunking:** ~500 tokens, 75-token sentence-aligned overlap, with page ranges kept for citations.
+- **Local embeddings:** an open-source model runs inside the ingest service and serves query embeddings too, so indexing and querying can't drift and there's no per-token cost.
 - **Title-prefixing:** each chunk is embedded as `title + chunk`, so short passages keep their document context.
 - **Hybrid + RRF:** vector and full-text retrievers run separately over the *filtered* set and are fused by rank (k=60). This avoids normalising incomparable scores, and the full-text query ORs its terms.
 - **Reranking:** Cohere rerank of the top 30, feature-flagged and failing open.
@@ -53,7 +54,7 @@ pnpm install
 pnpm db:start                       # local Supabase on :55321 (migrations applied)
 cp .env.example .env                # fill keys; local Supabase keys from `pnpm db:status`
 ln -s ../../.env apps/web/.env.local
-docker compose up -d ingest         # ingestion service on :8000
+docker compose up -d ingest         # ingestion + embedding service on :8000 (model baked into the image)
 pnpm dev                            # http://localhost:3000 — sign-in emails land in Mailpit (:55324)
 ```
 
@@ -95,7 +96,8 @@ pnpm test:e2e                                 # Playwright smoke (E2E_FULL=1 for
         "ASSET_IQ_API_KEY": "aiq_…",
         "SUPABASE_URL": "http://127.0.0.1:55321",
         "SUPABASE_SERVICE_ROLE_KEY": "…",
-        "OPENAI_API_KEY": "…",
+        "INGEST_SERVICE_URL": "http://localhost:8000",
+        "INGEST_SHARED_SECRET": "…",
         "ANTHROPIC_API_KEY": "…"
       }
     }

@@ -1,0 +1,65 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  typescript:
+    name: TypeScript — lint, type-check, unit tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm lint
+      - run: pnpm typecheck
+      - run: pnpm test
+
+  python:
+    name: Python — ruff + pytest (${{ matrix.project }})
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        project: [services/ingest, evals]
+    defaults:
+      run:
+        working-directory: ${{ matrix.project }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - run: uv sync --frozen
+      - run: uv run ruff check .
+      - run: uv run pytest -q
+
+  integration:
+    name: Integration — Supabase (pgvector, RLS, MCP) + Atlas local
+    runs-on: ubuntu-latest
+    needs: [typescript]
+    services:
+      mongodb:
+        image: mongodb/mongodb-atlas-local:8.0
+        ports: ["27018:27017"]
+        env:
+          MONGODB_INITDB_ROOT_USERNAME: assetiq
+          MONGODB_INITDB_ROOT_PASSWORD: assetiq-local
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Start Supabase (migrations applied on start)
+        run: pnpm exec supabase start -x studio,imgproxy,edge-runtime,logflare,vector,supavisor
+      - run: pnpm test:integration

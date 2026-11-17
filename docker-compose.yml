@@ -1,0 +1,29 @@
+# Local ingestion service. Supabase itself runs via `pnpm db:start` (Supabase CLI).
+services:
+  ingest:
+    build: ./services/ingest
+    env_file: .env
+    environment:
+      # Reach the Supabase CLI stack running on the host.
+      SUPABASE_URL: http://host.docker.internal:55321
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+
+  # Optional: local MongoDB Atlas (supports $vectorSearch + Atlas Search) for the
+  # alternative vector backend. Start with: docker compose --profile mongo up -d mongodb
+  mongodb:
+    image: mongodb/mongodb-atlas-local:8.0
+    profiles: ["mongo"]
+    ports:
+      - "27018:27017"
+    environment:
+      MONGODB_INITDB_ROOT_USERNAME: assetiq
+      MONGODB_INITDB_ROOT_PASSWORD: assetiq-local
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:

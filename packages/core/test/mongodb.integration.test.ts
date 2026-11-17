@@ -47,11 +47,16 @@ describe.skipIf(!up)("MongoAtlasStore (local Atlas)", () => {
       chunk({ id: "a3", ownerId: "A", documentId: "doc-2", content: "Noise at work in factories.", embedding: basis(20), contentType: "report", industry: "manufacturing", publishedAt: "2025-01-01" }),
       chunk({ id: "b1", ownerId: "B", content: "Scaffold inspection secrets of another tenant.", embedding: basis(0) }),
     ]);
-    // Atlas Search indexes are eventually consistent: wait until the new docs are searchable
-    const deadline = Date.now() + 60_000;
-    while (Date.now() < deadline) {
-      const r = await store.hybridSearch({ ownerId: "A", embedding: basis(0), text: "scaffold inspection", k: 5, mode: "keyword" });
-      if (r.length > 0) break;
+    // Atlas Search and Vector Search indexes sync independently and eventually: wait
+    // until BOTH can see all three of owner A's chunks before asserting on rankings.
+    const deadline = Date.now() + 120_000;
+    for (;;) {
+      const [kw, vec] = await Promise.all([
+        store.hybridSearch({ ownerId: "A", embedding: basis(0), text: "scaffold inspection noise ladders", k: 5, mode: "keyword" }),
+        store.hybridSearch({ ownerId: "A", embedding: basis(0), text: "", k: 5, mode: "vector" }),
+      ]);
+      if (kw.length >= 3 && vec.length >= 3) break;
+      if (Date.now() > deadline) throw new Error(`indexes not in sync: keyword=${kw.length} vector=${vec.length}`);
       await new Promise((res) => setTimeout(res, 1000));
     }
   });

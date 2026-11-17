@@ -5,7 +5,7 @@ import { addLlmUsage, type RequestContext } from "../context";
 import { AppError } from "../errors";
 import { anthropicOptions, chatModel, chatModelId } from "../llm";
 import { retrieve } from "../retrieval";
-import { CONTENT_TYPES, FiltersSchema } from "../types";
+import { CONTENT_TYPES, FiltersSchema, normaliseIndustry } from "../types";
 import { pageLabel } from "../util";
 import { citeToken, stitchWithPageMarkers, type PageChunk } from "./text";
 
@@ -127,7 +127,7 @@ export const listAssets = defineTool({
     "List documents in the library with metadata (title, type, industry, publish date, pages), newest first. Use to browse, find recent items, or pick documents by type/industry.",
   inputSchema: z.object({
     content_type: z.enum(CONTENT_TYPES).optional(),
-    industry: z.string().max(60).optional(),
+    industry: z.string().max(60).transform(normaliseIndustry).optional().describe("e.g. manufacturing, construction, healthcare"),
     after: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional().describe("Only documents published on/after YYYY-MM-DD"),
     limit: z.number().int().min(1).max(100).optional(),
   }),
@@ -144,7 +144,18 @@ export const listAssets = defineTool({
     if (input.after) q = q.gte("published_at", input.after);
     const { data, error } = await q;
     if (error) throw new AppError("internal", `list assets failed: ${error.message}`);
+    // An empty filtered result is ambiguous for the model ("nothing exists" vs "wrong
+    // filter value"), so say which values DO exist.
+    let available: { industries: string[]; content_types: string[] } | undefined;
+    if ((data ?? []).length === 0 && (input.industry || input.content_type || input.after)) {
+      const { data: all } = await ctx.db.from("documents").select("industry,content_type").eq("owner_id", ctx.ownerId).eq("status", "ready").limit(1000);
+      available = {
+        industries: [...new Set((all ?? []).map((d) => d.industry).filter((x): x is string => Boolean(x)))].sort(),
+        content_types: [...new Set((all ?? []).map((d) => d.content_type))].sort(),
+      };
+    }
     return {
+      ...(available ? { note: "No documents matched these filters. Values that exist in the library:", available } : {}),
       documents: (data ?? []).map((d) => ({
         document_id: d.id,
         title: d.title,

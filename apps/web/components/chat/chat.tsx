@@ -65,9 +65,10 @@ export function Chat({ industries }: { industries: string[] }) {
               key={m}
               type="button"
               onClick={() => setMode(m)}
+              aria-pressed={mode === m}
               className={`flex-1 rounded-md px-2 py-1 ${mode === m ? "bg-muted font-medium" : "text-muted-foreground"}`}
             >
-              {m === "chat" ? "Ask" : "Search only"}
+              {m === "chat" ? "Chat" : "Search only"}
             </button>
           ))}
         </div>

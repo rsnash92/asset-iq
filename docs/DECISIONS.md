@@ -58,6 +58,8 @@ One entry per non-obvious decision: **what** was chosen, **why**, and the **alte
 
 **Gotcha found while wiring it:** nomic is trained with task prefixes (`search_document: ` / `search_query: `), but fastembed's `query_embed`/`passage_embed` do **not** add them for this model (verified: `query_embed(x)` equals `embed(x)` exactly). The `Embedder` adds them explicitly per model, and a unit test pins this.
 
+**Memory (found the hard way):** the first full-corpus seed was OOM-killed by the Docker VM at ~3.2 GB. Measured on the largest PDF (108 chunks), batch 32 peaked at 3.6 GB because ONNX Runtime's CPU arena keeps every batch's high-water mark. Batch 8 with `enable_cpu_mem_arena=False` peaks at ~1.9 GB at the same speed, and the container now has a 3 GB `mem_limit`.
+
 **Trade-offs:** CPU throughput is ~4 chunks/s on a laptop (the full 38-document corpus takes a few minutes, once). Query embedding adds one internal HTTP hop (~tens of ms) and makes the ingest service part of the query path, so in production it must run with ≥1 replica (Azure Container Apps min-replicas=1). The image is ~0.5 GB larger.
 
 **Alternatives:** Voyage AI (Anthropic's recommended embeddings partner — strong quality, but another paid API key); embedding queries in Node with transformers.js (two runtimes to keep identical); Ollama (another daemon to run); the quantised `-Q` nomic variant (4× smaller, slightly lower quality — a config switch if image size matters).
@@ -183,3 +185,31 @@ One entry per non-obvious decision: **what** was chosen, **why**, and the **alte
 **What:** `supabase/config.toml` moves the local stack from 543xx to 553xx.
 
 **Why:** Other projects on the same machine already use the default ports. Using a distinct range lets them run side by side.
+
+## 2026-11-17 — BM25 in SQL replaces `ts_rank_cd` for the keyword retriever
+
+**What:** `match_chunks_hybrid`'s keyword side now computes Okapi BM25 (k1 = 1.2, b = 0.75) in plain SQL. A GIN `@@` pre-filter finds candidate chunks. Term frequencies come from `unnest(fts)` positions, document frequencies are counted over the filtered candidate set, and document length is `token_count`. RRF fusion is unchanged (migration 6).
+
+**Why — eval evidence:** On the first real run, hybrid (86.7% hit@5) scored **below** vector-only (96.7%), which failed the Phase 2 acceptance criterion. Per-question analysis showed vector rank-1 chunks being pushed out of the top 5 by keyword hits from long documents that repeat common domain terms. `ts_rank_cd` has neither IDF nor length normalisation. The MongoDB backend, using the same vectors and the same RRF but Lucene BM25, scored 96.7% / MRR 0.867, which isolated the cause. With BM25: keyword-only 66.7% → 93.3%, hybrid 86.7% → 96.7% with MRR 0.708 → 0.832, above vector-only's 0.792.
+
+**Guarding against overfitting:** The fix is the standard algorithm with textbook parameters, chosen from the diagnosis, not by tuning on the eval set. RRF weights and k were left alone.
+
+**Trade-off:** `unnest(fts)` on every candidate is fine for thousands of chunks per user, but not for millions. At that scale use a real BM25 index (ParadeDB `pg_search`) or Atlas Search.
+
+## 2026-11-17 — Judge rubric aligned with the product's refusal behaviour
+
+**What:** The judge's `declined` definition now counts "the library doesn't contain the answer to *this* question, but here are related topics it does cover" as a decline. Any attempt to answer the question itself, including a partial figure, still counts as answering.
+
+**Why:** The answer system prompt (per the spec) tells the model to say clearly that the answer isn't in the library and then mention related topics. The original rubric scored exactly that behaviour as "not declined", which penalised the product for following its spec. Changed after the first judged run, and disclosed here. The first run scored faithfulness 0.922 / citation correctness 0.881 / refusal accuracy 97.1%; after the change, 0.942 / 0.919 / 97.1% (answers are regenerated on each run, so some of the movement is run-to-run variance).
+
+## 2026-11-17 — Normalise filter values at the tool boundary; explain empty results
+
+**What:** Industry values are normalised (`"Manufacturing"` → `manufacturing`, `"Oil and Gas"` → `oil-and-gas`) in `FiltersSchema` and `list_assets`, using the same rule as uploads. When a filtered `list_assets` returns nothing, it also returns the industries and content types that *do* exist.
+
+**Why:** In the first demo run the model called `list_assets({industry: "Manufacturing"})`, got zero rows because stored tags are lowercase, and told the user the library had no manufacturing documents — a confident, false answer caused by a casing mismatch. Models will vary casing, so tools must be tolerant. An empty result is ambiguous ("nothing exists" vs "wrong filter"), so the tool says which values exist.
+
+## 2026-11-17 — Agent prompt: tags are coarse; never infer absence from a filtered list
+
+**What:** The agent system prompt says `general`-tagged documents apply to every industry, and the agent must confirm with an unfiltered `search_library` before claiming the library lacks something.
+
+**Why:** One run of the reading-list demo stated "the library has no document devoted to contractor safety", even though its own search had ranked HSG159 *Managing contractors* first. That was a reasoning failure, not a retrieval one: the model treated the `manufacturing` filter as exclusive. After the change, 3/3 repeat runs led with HSG159 and made no false absence claims.

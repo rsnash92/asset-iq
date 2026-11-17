@@ -66,7 +66,7 @@ class Embedder:
         self,
         model_name: str,
         dimensions: int = 768,
-        batch_size: int = 32,
+        batch_size: int = 8,
         model: TextModel | None = None,
         cache_dir: str | None = None,
     ) -> None:
@@ -83,7 +83,9 @@ class Embedder:
             from fastembed import TextEmbedding  # heavy import, deferred
 
             log.info("loading embedding model %s", self.model_name)
-            self._model = TextEmbedding(self.model_name, cache_dir=self.cache_dir)
+            # The ONNX CPU arena keeps the high-water mark of every batch and never
+            # releases it; disabling it bounds memory (see config.embed_batch_size).
+            self._model = TextEmbedding(self.model_name, cache_dir=self.cache_dir, enable_cpu_mem_arena=False)
         return self._model
 
     def warm(self) -> None:

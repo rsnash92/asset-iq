@@ -5,17 +5,17 @@ set -euo pipefail
 cd "$(dirname "$0")"
 EXTRA=("$@")
 
-uv run python run.py --config pgvector-vector        --mode vector --no-rerank "${EXTRA[@]}"
-uv run python run.py --config pgvector-hybrid        --mode hybrid --no-rerank "${EXTRA[@]}"
-uv run python run.py --config pgvector-keyword       --mode keyword --no-rerank "${EXTRA[@]}"
+uv run python run.py --config pgvector-vector        --mode vector --no-rerank ${EXTRA[@]+"${EXTRA[@]}"}
+uv run python run.py --config pgvector-hybrid        --mode hybrid --no-rerank ${EXTRA[@]+"${EXTRA[@]}"}
+uv run python run.py --config pgvector-keyword       --mode keyword --no-rerank ${EXTRA[@]+"${EXTRA[@]}"}
 # Rerank falls back to RRF order without a Cohere key, so only run (and label) it when one is set.
 if grep -qE '^COHERE_API_KEY=.+' ../.env 2>/dev/null || [ -n "${COHERE_API_KEY:-}" ]; then
-  uv run python run.py --config pgvector-hybrid-rerank --mode hybrid --rerank "${EXTRA[@]}"
+  uv run python run.py --config pgvector-hybrid-rerank --mode hybrid --rerank ${EXTRA[@]+"${EXTRA[@]}"}
 else
   echo "skipping pgvector-hybrid-rerank: COHERE_API_KEY not set"
 fi
 # Skips cleanly (exit 0) if the MongoDB backend isn't configured (API returns 501).
-uv run python run.py --config mongodb-hybrid --backend mongodb --mode hybrid --no-rerank "${EXTRA[@]}"
+uv run python run.py --config mongodb-hybrid --backend mongodb --mode hybrid --no-rerank ${EXTRA[@]+"${EXTRA[@]}"}
 
 echo
 cat results/SUMMARY.md

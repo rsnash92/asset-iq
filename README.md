@@ -2,7 +2,13 @@
 
 **AI search and assistant for a B2B content library.** Ask questions in plain English and get streamed answers with page-level citations. An agent can find, filter, summarise and draft from your documents, and the same tools are exposed to Claude Desktop/Code through an MCP server. Retrieval is hybrid (pgvector + Postgres full-text, fused with Reciprocal Rank Fusion, optional Cohere rerank). An eval suite measures it, and the vector backend can be swapped between pgvector and MongoDB Atlas.
 
-> 🎥 Demo video: _TODO_ · 🌐 Live demo: _TODO_ · 📸 Screenshot: _TODO_
+> 🎥 Demo video: _TODO_ · 🌐 Live demo: _TODO (not deployed yet)_
+
+![Chat: streamed answer with citation chips and the retrieval debug panel](docs/screenshots/chat.png)
+
+| Agent | Library |
+|---|---|
+| ![Agent building a cited reading list](docs/screenshots/agent.png) | ![Library with ingestion status](docs/screenshots/library.png) |
 
 ## Architecture
 
@@ -32,18 +38,41 @@ All decisions, with alternatives, are in [docs/DECISIONS.md](docs/DECISIONS.md).
 
 ## Eval results
 
-_TODO — run `evals/compare.sh` once provider keys are configured; results land in [evals/results/SUMMARY.md](evals/results/SUMMARY.md) and on the `/evals` page._
+Corpus: 38 HSE publications (752 pages, 827 chunks). Dataset: 30 answerable questions with expected document + page (checked against the PDF text), plus 5 unanswerable ones. Run 2026-11-17 locally; full detail in [evals/results/SUMMARY.md](evals/results/SUMMARY.md).
 
-| Config | Hit@5 (page) | Hit@5 (doc) | MRR | Faithfulness | Citation correctness | Refusal accuracy |
-|---|---|---|---|---|---|---|
-| pgvector · vector-only | – | – | – | – | – | – |
-| pgvector · hybrid | – | – | – | – | – | – |
-| pgvector · hybrid + rerank | – | – | – | – | – | – |
-| MongoDB · hybrid | – | – | – | – | – | – |
+**Retrieval** (k = 5; page-level hit = an expected page is inside a retrieved chunk's page range):
+
+| Config | Hit@5 (page) | Hit@5 (doc) | MRR | p50 / p95 search |
+|---|---|---|---|---|
+| pgvector · vector-only | 96.7% | 100% | 0.792 | 50 / 83 ms |
+| pgvector · keyword-only (BM25) | 93.3% | 96.7% | 0.783 | 33 / 39 ms |
+| **pgvector · hybrid (vector + BM25, RRF)** | **96.7%** | 96.7% | **0.832** | 77 / 93 ms |
+| MongoDB Atlas · hybrid (`$vectorSearch` + Atlas Search, RRF) | 96.7% | 100% | 0.867 | 47 / 78 ms |
+| pgvector · hybrid + Cohere rerank | not run — no Cohere key | | | |
+
+**Answers** (pgvector hybrid; Claude Sonnet 5.5 answers, Claude Haiku 5.5 judge):
+
+| Faithfulness | Citation correctness | Refusal accuracy (35 Qs) |
+|---|---|---|
+| 0.942 | 0.919 | 97.1% |
+
+What the numbers say, and what they don't:
+- **Hybrid only beat vector-only after fixing the keyword retriever.** With Postgres `ts_rank_cd`, keyword-only scored 66.7% and *dragged hybrid down to 86.7%*: with no IDF and no length normalisation, long documents that repeat common terms ("contractor", "work") swamped the keyword list. Replacing it with BM25 written in SQL took keyword-only to 93.3% and hybrid to 96.7% with the best MRR. Atlas Search (Lucene BM25) shows the same effect. See [DECISIONS.md](docs/DECISIONS.md).
+- **30 questions is a small set:** one question is 3.3 points, so the hit@5 differences between the top configs are within noise. MRR (rank quality) is the more informative column here.
+- **Known weakness: statistics tables.** The lowest answer scores are all on the 2025 HSE statistics reports. PDF text extraction flattens tables, so figures get separated from their labels and the model occasionally mis-attributes one. Table-aware extraction is the next fix.
+- The judge rubric was aligned with the product's refusal behaviour (decline the question, then optionally mention related topics) after the first run. Both runs are described in DECISIONS.md.
 
 ## Cost and latency per query
 
-_TODO — from `query_logs` (Usage page / `usage_summary` RPC): median and p95 latency and cost per chat, agent and search request._
+From `query_logs` (local run: Next dev server, CPU embeddings, Claude API):
+
+| Request | n | p50 latency | p95 latency | p50 cost | p95 cost |
+|---|---|---|---|---|---|
+| Grounded answer (chat pipeline, non-streamed) | 70 | 3.0 s | 5.5 s | $0.012 | $0.016 |
+| Search only (embed + hybrid SQL) | 245 | 63 ms | 107 ms | $0 | $0 |
+| Agent task (3 demo tasks) | 4 | 11.4 s | 16.7 s | $0.066 | $0.108 |
+
+Embeddings are free (local model). Chat streams its first tokens well before the p50 total above. The answer cost is dominated by the ~6k tokens of excerpts sent to Sonnet.
 
 ## Run locally
 

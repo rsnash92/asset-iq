@@ -33,7 +33,7 @@ export function AnswerMarkdown({
     .replace(/\[(\d{1,3})\](?!\()/g, (m, n: string) => (numbered?.has(Number(n)) ? `[${n}](#cite:${n})` : m));
 
   return (
-    <div className="prose prose-sm max-w-none space-y-2 dark:prose-invert [&_li]:ml-4 [&_ol]:list-decimal [&_ul]:list-disc">
+    <div className="max-w-none space-y-2 text-sm leading-relaxed [&_h1]:mt-2 [&_h1]:text-base [&_h1]:font-semibold [&_h2]:mt-3 [&_h2]:text-sm [&_h2]:font-semibold [&_h3]:mt-2 [&_h3]:font-medium [&_li]:ml-5 [&_li]:mt-1 [&_ol]:list-decimal [&_strong]:font-semibold [&_table]:w-full [&_td]:border [&_td]:p-1 [&_th]:border [&_th]:p-1 [&_ul]:list-disc">
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
         components={{

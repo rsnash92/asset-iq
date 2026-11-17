@@ -1,0 +1,3308 @@
+{
+  "config": "pgvector-vector",
+  "created_at": "2026-11-17T14:42:17+00:00",
+  "params": {
+    "config": "pgvector-vector",
+    "mode": "vector",
+    "rerank": false,
+    "backend": "pgvector",
+    "k": 5,
+    "answers": false,
+    "dataset": "3fbee267f9f2"
+  },
+  "aggregates": {
+    "n_questions": 35,
+    "n_answerable": 30,
+    "retrieval": {
+      "hit_at_5": 0.9666666666666667,
+      "doc_hit_at_5": 1.0,
+      "mrr": 0.7916666666666666
+    },
+    "answer": null,
+    "cost_usd": 0.0,
+    "latency_ms_p50": 50.0,
+    "latency_ms_p95": 82.89999999999996
+  },
+  "questions": [
+    {
+      "id": "q01",
+      "question": "What share of reported major injuries at work are caused by slips and trips?",
+      "answerable": true,
+      "expected": [
+        {
+          "external_ref": "indg225",
+          "pages": [
+            1
+          ]
+        }
+      ],
+      "latency_ms": 135,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunkId": "0ff2fdd9-0881-4453-948a-05ba4b47bc57",
+          "externalRef": "indg225",
+          "title": "Preventing slips and trips at work: a brief guide",
+          "pageStart": 1,
+          "pageEnd": 2,
+          "vectorRank": 1,
+          "keywordRank": null,
+          "vectorScore": 0.850640586056746,
+          "keywordScore": null,
+          "rrfScore": 0.0163934426229508,
+          "rerankScore": null,
+          "relevant": true
+        },
+        {
+          "rank": 2,
+          "chunkId": "1bca6654-a458-484a-9e7c-1d95c1183945",
+          "externalRef": "indg225",
+          "title": "Preventing slips and trips at work: a brief guide",
+          "pageStart": 2,
+          "pageEnd": 3,
+          "vectorRank": 2,
+          "keywordRank": null,
+          "vectorScore": 0.799806833267212,
+          "keywordScore": null,
+          "rrfScore": 0.0161290322580645,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 3,
+          "chunkId": "761dc8f1-5105-4eb7-aeed-7cb79e9df358",
+          "externalRef": "indg225",
+          "title": "Preventing slips and trips at work: a brief guide",
+          "pageStart": 3,
+          "pageEnd": 5,
+          "vectorRank": 3,
+          "keywordRank": null,
+          "vectorScore": 0.785154104232788,
+          "keywordScore": null,
+          "rrfScore": 0.0158730158730159,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 4,
+          "chunkId": "d1cf9b18-7cd0-4296-8b3a-5592c001d2be",
+          "externalRef": "indg225",
+          "title": "Preventing slips and trips at work: a brief guide",
+          "pageStart": 3,
+          "pageEnd": 4,
+          "vectorRank": 4,
+          "keywordRank": null,
+          "vectorScore": 0.741449974222481,
+          "keywordScore": null,
+          "rrfScore": 0.015625,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 5,
+          "chunkId": "6b47a2aa-3eca-4f09-a0fb-443213c8fa38",
+          "externalRef": "indg225",
+          "title": "Preventing slips and trips at work: a brief guide",
+          "pageStart": 4,
+          "pageEnd": 5,
+          "vectorRank": 5,
+          "keywordRank": null,
+          "vectorScore": 0.740723967552185,
+          "keywordScore": null,
+          "rrfScore": 0.0153846153846154,
+          "rerankScore": null,
+          "relevant": false
+        }
+      ],
+      "hit_at_5": true,
+      "doc_hit_at_5": true,
+      "rr": 1.0,
+      "first_relevant_rank": 1
+    },
+    {
+      "id": "q02",
+      "question": "What are the lower and upper exposure action values for daily noise exposure at work?",
+      "answerable": true,
+      "expected": [
+        {
+          "external_ref": "indg362",
+          "pages": [
+            4
+          ]
+        }
+      ],
+      "latency_ms": 49,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunkId": "05823486-9560-4047-a8b2-b55a56b55c30",
+          "externalRef": "indg362",
+          "title": "Noise at work: a brief guide to controlling the risks",
+          "pageStart": 3,
+          "pageEnd": 4,
+          "vectorRank": 1,
+          "keywordRank": null,
+          "vectorScore": 0.789665959417695,
+          "keywordScore": null,
+          "rrfScore": 0.0163934426229508,
+          "rerankScore": null,
+          "relevant": true
+        },
+        {
+          "rank": 2,
+          "chunkId": "46407323-05d1-445a-81f0-ef4261242d6f",
+          "externalRef": "indg362",
+          "title": "Noise at work: a brief guide to controlling the risks",
+          "pageStart": 2,
+          "pageEnd": 3,
+          "vectorRank": 2,
+          "keywordRank": null,
+          "vectorScore": 0.745568871498113,
+          "keywordScore": null,
+          "rrfScore": 0.0161290322580645,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 3,
+          "chunkId": "d8c9d4b6-8d52-4ad6-9275-0b48b9e7b9da",
+          "externalRef": "hsg270",
+          "title": "Farmwise: your essential guide to health and safety in agriculture (HSG270)",
+          "pageStart": 50,
+          "pageEnd": 51,
+          "vectorRank": 3,
+          "keywordRank": null,
+          "vectorScore": 0.739781267027372,
+          "keywordScore": null,
+          "rrfScore": 0.0158730158730159,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 4,
+          "chunkId": "823f210c-4f0a-4d36-a1e4-4c595466a900",
+          "externalRef": "indg362",
+          "title": "Noise at work: a brief guide to controlling the risks",
+          "pageStart": 4,
+          "pageEnd": 5,
+          "vectorRank": 4,
+          "keywordRank": null,
+          "vectorScore": 0.726108177072298,
+          "keywordScore": null,
+          "rrfScore": 0.015625,
+          "rerankScore": null,
+          "relevant": true
+        },
+        {
+          "rank": 5,
+          "chunkId": "0f7462cc-fe14-4764-88b1-0b15269c64ae",
+          "externalRef": "indg362",
+          "title": "Noise at work: a brief guide to controlling the risks",
+          "pageStart": 6,
+          "pageEnd": 7,
+          "vectorRank": 5,
+          "keywordRank": null,
+          "vectorScore": 0.70563344392976,
+          "keywordScore": null,
+          "rrfScore": 0.0153846153846154,
+          "rerankScore": null,
+          "relevant": false
+        }
+      ],
+      "hit_at_5": true,
+      "doc_hit_at_5": true,
+      "rr": 1.0,
+      "first_relevant_rank": 1
+    },
+    {
+      "id": "q03",
+      "question": "When does a construction project have to be notified to HSE under CDM 2015?",
+      "answerable": true,
+      "expected": [
+        {
+          "external_ref": "l153",
+          "pages": [
+            20
+          ]
+        }
+      ],
+      "latency_ms": 47,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunkId": "835938bb-80cf-4e03-95bb-de5c9a75fe37",
+          "externalRef": "l153",
+          "title": "Managing health and safety in construction: CDM 2015 guidance on regulations (L153)",
+          "pageStart": 20,
+          "pageEnd": 21,
+          "vectorRank": 1,
+          "keywordRank": null,
+          "vectorScore": 0.861879203859595,
+          "keywordScore": null,
+          "rrfScore": 0.0163934426229508,
+          "rerankScore": null,
+          "relevant": true
+        },
+        {
+          "rank": 2,
+          "chunkId": "a8d7abf8-4a15-41cc-bea7-ce24b56c7151",
+          "externalRef": "l153",
+          "title": "Managing health and safety in construction: CDM 2015 guidance on regulations (L153)",
+          "pageStart": 20,
+          "pageEnd": 21,
+          "vectorRank": 2,
+          "keywordRank": null,
+          "vectorScore": 0.832079028127226,
+          "keywordScore": null,
+          "rrfScore": 0.0161290322580645,
+          "rerankScore": null,
+          "relevant": true
+        },
+        {
+          "rank": 3,
+          "chunkId": "035294ba-3251-407b-a46e-02374fac6721",
+          "externalRef": "l153",
+          "title": "Managing health and safety in construction: CDM 2015 guidance on regulations (L153)",
+          "pageStart": 1,
+          "pageEnd": 3,
+          "vectorRank": 3,
+          "keywordRank": null,
+          "vectorScore": 0.821609924935704,
+          "keywordScore": null,
+          "rrfScore": 0.0158730158730159,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 4,
+          "chunkId": "59065d60-701f-44b6-a8c0-bae98a75d17e",
+          "externalRef": "indg411",
+          "title": "Need building work done? A short guide for clients on the CDM Regulations 2015",
+          "pageStart": 3,
+          "pageEnd": 4,
+          "vectorRank": 4,
+          "keywordRank": null,
+          "vectorScore": 0.817954036363239,
+          "keywordScore": null,
+          "rrfScore": 0.015625,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 5,
+          "chunkId": "ef7c6705-dbea-4ba1-a779-cc9043728066",
+          "externalRef": "l153",
+          "title": "Managing health and safety in construction: CDM 2015 guidance on regulations (L153)",
+          "pageStart": 10,
+          "pageEnd": 11,
+          "vectorRank": 5,
+          "keywordRank": null,
+          "vectorScore": 0.817255448266541,
+          "keywordScore": null,
+          "rrfScore": 0.0153846153846154,
+          "rerankScore": null,
+          "relevant": false
+        }
+      ],
+      "hit_at_5": true,
+      "doc_hit_at_5": true,
+      "rr": 1.0,
+      "first_relevant_rank": 1
+    },
+    {
+      "id": "q04",
+      "question": "What are HSE's five steps for managing contractors safely?",
+      "answerable": true,
+      "expected": [
+        {
+          "external_ref": "hsg159",
+          "pages": [
+            3,
+            22
+          ]
+        }
+      ],
+      "latency_ms": 46,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunkId": "0ece65d5-a489-4cd8-9d52-f43e14ee6fc2",
+          "externalRef": "hsg65",
+          "title": "Managing for health and safety (HSG65)",
+          "pageStart": 32,
+          "pageEnd": 33,
+          "vectorRank": 1,
+          "keywordRank": null,
+          "vectorScore": 0.853671014308929,
+          "keywordScore": null,
+          "rrfScore": 0.0163934426229508,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 2,
+          "chunkId": "cdb14c03-2dfc-4d40-8533-2078dd5a6d8b",
+          "externalRef": "hsg159",
+          "title": "Managing contractors: a guide for employers (HSG159)",
+          "pageStart": 17,
+          "pageEnd": 18,
+          "vectorRank": 2,
+          "keywordRank": null,
+          "vectorScore": 0.850995898246765,
+          "keywordScore": null,
+          "rrfScore": 0.0161290322580645,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 3,
+          "chunkId": "7f322776-ed75-4343-bdeb-b2494712d936",
+          "externalRef": "hsg159",
+          "title": "Managing contractors: a guide for employers (HSG159)",
+          "pageStart": 22,
+          "pageEnd": 23,
+          "vectorRank": 3,
+          "keywordRank": null,
+          "vectorScore": 0.843626737594604,
+          "keywordScore": null,
+          "rrfScore": 0.0158730158730159,
+          "rerankScore": null,
+          "relevant": true
+        },
+        {
+          "rank": 4,
+          "chunkId": "593a773d-0328-4d95-9692-96469f9c083f",
+          "externalRef": "hsg65",
+          "title": "Managing for health and safety (HSG65)",
+          "pageStart": 33,
+          "pageEnd": 34,
+          "vectorRank": 4,
+          "keywordRank": null,
+          "vectorScore": 0.841551244258881,
+          "keywordScore": null,
+          "rrfScore": 0.015625,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 5,
+          "chunkId": "f3a36b69-f2d1-46be-b397-c6a38bc91813",
+          "externalRef": "hsg159",
+          "title": "Managing contractors: a guide for employers (HSG159)",
+          "pageStart": 38,
+          "pageEnd": 39,
+          "vectorRank": 5,
+          "keywordRank": null,
+          "vectorScore": 0.83924400806427,
+          "keywordScore": null,
+          "rrfScore": 0.0153846153846154,
+          "rerankScore": null,
+          "relevant": false
+        }
+      ],
+      "hit_at_5": true,
+      "doc_hit_at_5": true,
+      "rr": 0.3333333333333333,
+      "first_relevant_rank": 3
+    },
+    {
+      "id": "q05",
+      "question": "Which areas of work do HSE's stress Management Standards cover?",
+      "answerable": true,
+      "expected": [
+        {
+          "external_ref": "indg430",
+          "pages": [
+            1,
+            3,
+            6
+          ]
+        }
+      ],
+      "latency_ms": 43,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunkId": "8adfb8ba-befb-4e13-beb9-1355f56bc46d",
+          "externalRef": "indg430",
+          "title": "How to tackle work-related stress: a guide for employers on the Management Standards",
+          "pageStart": 9,
+          "pageEnd": 9,
+          "vectorRank": 1,
+          "keywordRank": null,
+          "vectorScore": 0.832366133700792,
+          "keywordScore": null,
+          "rrfScore": 0.0163934426229508,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 2,
+          "chunkId": "78af92d2-5d74-4274-bd87-cce2c9d671bb",
+          "externalRef": "indg430",
+          "title": "How to tackle work-related stress: a guide for employers on the Management Standards",
+          "pageStart": 3,
+          "pageEnd": 4,
+          "vectorRank": 2,
+          "keywordRank": null,
+          "vectorScore": 0.814862931217639,
+          "keywordScore": null,
+          "rrfScore": 0.0161290322580645,
+          "rerankScore": null,
+          "relevant": true
+        },
+        {
+          "rank": 3,
+          "chunkId": "4218864d-5933-48b2-84e8-70807ed2df80",
+          "externalRef": "indg430",
+          "title": "How to tackle work-related stress: a guide for employers on the Management Standards",
+          "pageStart": 9,
+          "pageEnd": 9,
+          "vectorRank": 3,
+          "keywordRank": null,
+          "vectorScore": 0.809895384901487,
+          "keywordScore": null,
+          "rrfScore": 0.0158730158730159,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 4,
+          "chunkId": "7ea10014-2f70-4602-8039-e788a61d35b3",
+          "externalRef": "indg430",
+          "title": "How to tackle work-related stress: a guide for employers on the Management Standards",
+          "pageStart": 1,
+          "pageEnd": 1,
+          "vectorRank": 4,
+          "keywordRank": null,
+          "vectorScore": 0.808394336950611,
+          "keywordScore": null,
+          "rrfScore": 0.015625,
+          "rerankScore": null,
+          "relevant": true
+        },
+        {
+          "rank": 5,
+          "chunkId": "9dfcc675-ea21-489d-b083-2a161293230a",
+          "externalRef": "indg430",
+          "title": "How to tackle work-related stress: a guide for employers on the Management Standards",
+          "pageStart": 6,
+          "pageEnd": 7,
+          "vectorRank": 5,
+          "keywordRank": null,
+          "vectorScore": 0.795012164561862,
+          "keywordScore": null,
+          "rrfScore": 0.0153846153846154,
+          "rerankScore": null,
+          "relevant": true
+        }
+      ],
+      "hit_at_5": true,
+      "doc_hit_at_5": true,
+      "rr": 0.5,
+      "first_relevant_rank": 2
+    },
+    {
+      "id": "q06",
+      "question": "Which management model did HSE move away from when it adopted Plan, Do, Check, Act?",
+      "answerable": true,
+      "expected": [
+        {
+          "external_ref": "hsg65",
+          "pages": [
+            7
+          ]
+        }
+      ],
+      "latency_ms": 48,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunkId": "e8245677-a394-4560-82d0-d6357e2c61db",
+          "externalRef": "hsg65",
+          "title": "Managing for health and safety (HSG65)",
+          "pageStart": 6,
+          "pageEnd": 7,
+          "vectorRank": 1,
+          "keywordRank": null,
+          "vectorScore": 0.744734726689301,
+          "keywordScore": null,
+          "rrfScore": 0.0163934426229508,
+          "rerankScore": null,
+          "relevant": true
+        },
+        {
+          "rank": 2,
+          "chunkId": "b1e29c0e-f240-4734-862f-d93451691ec8",
+          "externalRef": "hsg65",
+          "title": "Managing for health and safety (HSG65)",
+          "pageStart": 8,
+          "pageEnd": 10,
+          "vectorRank": 2,
+          "keywordRank": null,
+          "vectorScore": 0.705014986098706,
+          "keywordScore": null,
+          "rrfScore": 0.0161290322580645,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 3,
+          "chunkId": "375db3f9-24a3-4f66-88f9-ca97d6c0a986",
+          "externalRef": "hsg65",
+          "title": "Managing for health and safety (HSG65)",
+          "pageStart": 20,
+          "pageEnd": 21,
+          "vectorRank": 3,
+          "keywordRank": null,
+          "vectorScore": 0.692727824828858,
+          "keywordScore": null,
+          "rrfScore": 0.0158730158730159,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 4,
+          "chunkId": "d1d5463c-3a88-4a0f-bb9f-927feef88f2b",
+          "externalRef": "hsg65",
+          "title": "Managing for health and safety (HSG65)",
+          "pageStart": 48,
+          "pageEnd": 49,
+          "vectorRank": 4,
+          "keywordRank": null,
+          "vectorScore": 0.682362934421389,
+          "keywordScore": null,
+          "rrfScore": 0.015625,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 5,
+          "chunkId": "d82f72bd-61c5-405f-9943-3988cc65f24c",
+          "externalRef": "hsg65",
+          "title": "Managing for health and safety (HSG65)",
+          "pageStart": 22,
+          "pageEnd": 23,
+          "vectorRank": 5,
+          "keywordRank": null,
+          "vectorScore": 0.681067268912033,
+          "keywordScore": null,
+          "rrfScore": 0.0153846153846154,
+          "rerankScore": null,
+          "relevant": false
+        }
+      ],
+      "hit_at_5": true,
+      "doc_hit_at_5": true,
+      "rr": 1.0,
+      "first_relevant_rank": 1
+    },
+    {
+      "id": "q07",
+      "question": "What is the minimum first-aid provision every workplace must have?",
+      "answerable": true,
+      "expected": [
+        {
+          "external_ref": "indg214",
+          "pages": [
+            1
+          ]
+        }
+      ],
+      "latency_ms": 50,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunkId": "04d8ee9f-a662-42a6-9e20-d01222bdeaa2",
+          "externalRef": "indg214",
+          "title": "First aid at work: your questions answered",
+          "pageStart": 5,
+          "pageEnd": 6,
+          "vectorRank": 1,
+          "keywordRank": null,
+          "vectorScore": 0.829411675298923,
+          "keywordScore": null,
+          "rrfScore": 0.0163934426229508,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 2,
+          "chunkId": "bcebbdb6-7940-468e-b131-bb4d38683dd9",
+          "externalRef": "indg214",
+          "title": "First aid at work: your questions answered",
+          "pageStart": 1,
+          "pageEnd": 2,
+          "vectorRank": 2,
+          "keywordRank": null,
+          "vectorScore": 0.826914002115382,
+          "keywordScore": null,
+          "rrfScore": 0.0161290322580645,
+          "rerankScore": null,
+          "relevant": true
+        },
+        {
+          "rank": 3,
+          "chunkId": "ff2691a8-650d-49e5-9c6c-46f19b69d5d7",
+          "externalRef": "indg214",
+          "title": "First aid at work: your questions answered",
+          "pageStart": 1,
+          "pageEnd": 2,
+          "vectorRank": 3,
+          "keywordRank": null,
+          "vectorScore": 0.824675479492608,
+          "keywordScore": null,
+          "rrfScore": 0.0158730158730159,
+          "rerankScore": null,
+          "relevant": true
+        },
+        {
+          "rank": 4,
+          "chunkId": "3e4c8c6b-3dc2-4de2-b6d1-565c5c579d57",
+          "externalRef": "indg214",
+          "title": "First aid at work: your questions answered",
+          "pageStart": 4,
+          "pageEnd": 5,
+          "vectorRank": 4,
+          "keywordRank": null,
+          "vectorScore": 0.797999775171259,
+          "keywordScore": null,
+          "rrfScore": 0.015625,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 5,
+          "chunkId": "44864081-cfac-4e43-82ed-ae663385ae79",
+          "externalRef": "indg214",
+          "title": "First aid at work: your questions answered",
+          "pageStart": 3,
+          "pageEnd": 4,
+          "vectorRank": 5,
+          "keywordRank": null,
+          "vectorScore": 0.794979022885954,
+          "keywordScore": null,
+          "rrfScore": 0.0153846153846154,
+          "rerankScore": null,
+          "relevant": false
+        }
+      ],
+      "hit_at_5": true,
+      "doc_hit_at_5": true,
+      "rr": 0.5,
+      "first_relevant_rank": 2
+    },
+    {
+      "id": "q08",
+      "question": "If a display screen user needs glasses just for screen work, does the employer have to pay?",
+      "answerable": true,
+      "expected": [
+        {
+          "external_ref": "indg36",
+          "pages": [
+            4
+          ]
+        }
+      ],
+      "latency_ms": 44,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunkId": "b205af2e-2565-4ac1-b3fb-e0b37fac34fe",
+          "externalRef": "indg36",
+          "title": "Working with display screen equipment (DSE): a brief guide",
+          "pageStart": 4,
+          "pageEnd": 5,
+          "vectorRank": 1,
+          "keywordRank": null,
+          "vectorScore": 0.757591605186462,
+          "keywordScore": null,
+          "rrfScore": 0.0163934426229508,
+          "rerankScore": null,
+          "relevant": true
+        },
+        {
+          "rank": 2,
+          "chunkId": "7af2d9a0-ea5e-4330-9e59-6a86bb06082c",
+          "externalRef": "indg36",
+          "title": "Working with display screen equipment (DSE): a brief guide",
+          "pageStart": 4,
+          "pageEnd": 5,
+          "vectorRank": 2,
+          "keywordRank": null,
+          "vectorScore": 0.724452614784241,
+          "keywordScore": null,
+          "rrfScore": 0.0161290322580645,
+          "rerankScore": null,
+          "relevant": true
+        },
+        {
+          "rank": 3,
+          "chunkId": "cfbc0915-014f-4cd9-863d-9ee6286d8a20",
+          "externalRef": "indg36",
+          "title": "Working with display screen equipment (DSE): a brief guide",
+          "pageStart": 6,
+          "pageEnd": 6,
+          "vectorRank": 3,
+          "keywordRank": null,
+          "vectorScore": 0.698735138736223,
+          "keywordScore": null,
+          "rrfScore": 0.0158730158730159,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 4,
+          "chunkId": "f9a1dc77-d78d-47a1-a7de-606cd0867e6d",
+          "externalRef": "indg36",
+          "title": "Working with display screen equipment (DSE): a brief guide",
+          "pageStart": 5,
+          "pageEnd": 6,
+          "vectorRank": 4,
+          "keywordRank": null,
+          "vectorScore": 0.698666512966156,
+          "keywordScore": null,
+          "rrfScore": 0.015625,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 5,
+          "chunkId": "3e6e17ee-fc8a-490b-bf29-60da9e552508",
+          "externalRef": "indg36",
+          "title": "Working with display screen equipment (DSE): a brief guide",
+          "pageStart": 1,
+          "pageEnd": 2,
+          "vectorRank": 5,
+          "keywordRank": null,
+          "vectorScore": 0.689101696014404,
+          "keywordScore": null,
+          "rrfScore": 0.0153846153846154,
+          "rerankScore": null,
+          "relevant": false
+        }
+      ],
+      "hit_at_5": true,
+      "doc_hit_at_5": true,
+      "rr": 1.0,
+      "first_relevant_rank": 1
+    },
+    {
+      "id": "q09",
+      "question": "How far should window openings be restricted in health and social care premises to prevent falls?",
+      "answerable": true,
+      "expected": [
+        {
+          "external_ref": "hsis5",
+          "pages": [
+            2
+          ]
+        }
+      ],
+      "latency_ms": 49,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunkId": "a969f2dd-a699-4cf1-8ca9-acec151d5aa8",
+          "externalRef": "hsis5",
+          "title": "Falls from windows or balconies in health and social care (HSIS5)",
+          "pageStart": 2,
+          "pageEnd": 3,
+          "vectorRank": 1,
+          "keywordRank": null,
+          "vectorScore": 0.841263730375328,
+          "keywordScore": null,
+          "rrfScore": 0.0163934426229508,
+          "rerankScore": null,
+          "relevant": true
+        },
+        {
+          "rank": 2,
+          "chunkId": "7f72c40c-56ec-4be5-8d5f-c03a737facfd",
+          "externalRef": "hsis5",
+          "title": "Falls from windows or balconies in health and social care (HSIS5)",
+          "pageStart": 1,
+          "pageEnd": 2,
+          "vectorRank": 2,
+          "keywordRank": null,
+          "vectorScore": 0.835550785064697,
+          "keywordScore": null,
+          "rrfScore": 0.0161290322580645,
+          "rerankScore": null,
+          "relevant": true
+        },
+        {
+          "rank": 3,
+          "chunkId": "5cfaf454-5633-402a-84d6-e696f9774522",
+          "externalRef": "hsis5",
+          "title": "Falls from windows or balconies in health and social care (HSIS5)",
+          "pageStart": 2,
+          "pageEnd": 2,
+          "vectorRank": 3,
+          "keywordRank": null,
+          "vectorScore": 0.818643499531956,
+          "keywordScore": null,
+          "rrfScore": 0.0158730158730159,
+          "rerankScore": null,
+          "relevant": true
+        },
+        {
+          "rank": 4,
+          "chunkId": "33bd3bef-6820-43b4-a4d5-cbf88cf60dac",
+          "externalRef": "hsis5",
+          "title": "Falls from windows or balconies in health and social care (HSIS5)",
+          "pageStart": 1,
+          "pageEnd": 1,
+          "vectorRank": 4,
+          "keywordRank": null,
+          "vectorScore": 0.782390534877777,
+          "keywordScore": null,
+          "rrfScore": 0.015625,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 5,
+          "chunkId": "94970a41-d72d-47bb-8b48-12b7612b7ef5",
+          "externalRef": "hsis5",
+          "title": "Falls from windows or balconies in health and social care (HSIS5)",
+          "pageStart": 3,
+          "pageEnd": 3,
+          "vectorRank": 5,
+          "keywordRank": null,
+          "vectorScore": 0.774534119693393,
+          "keywordScore": null,
+          "rrfScore": 0.0153846153846154,
+          "rerankScore": null,
+          "relevant": false
+        }
+      ],
+      "hit_at_5": true,
+      "doc_hit_at_5": true,
+      "rr": 1.0,
+      "first_relevant_rank": 1
+    },
+    {
+      "id": "q10",
+      "question": "How often does LOLER require hoists used for lifting patients to be thoroughly examined?",
+      "answerable": true,
+      "expected": [
+        {
+          "external_ref": "hsis3",
+          "pages": [
+            3
+          ]
+        }
+      ],
+      "latency_ms": 68,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunkId": "e15304f5-20c7-4fc7-acce-6005e94f5a1d",
+          "externalRef": "hsis3",
+          "title": "Getting to grips with hoisting people (HSIS3)",
+          "pageStart": 2,
+          "pageEnd": 3,
+          "vectorRank": 1,
+          "keywordRank": null,
+          "vectorScore": 0.776614202462782,
+          "keywordScore": null,
+          "rrfScore": 0.0163934426229508,
+          "rerankScore": null,
+          "relevant": true
+        },
+        {
+          "rank": 2,
+          "chunkId": "1f6899a9-eb7d-49b6-8694-f4304e2554ba",
+          "externalRef": "hsg136",
+          "title": "A guide to workplace transport safety (HSG136)",
+          "pageStart": 47,
+          "pageEnd": 48,
+          "vectorRank": 2,
+          "keywordRank": null,
+          "vectorScore": 0.731302440166473,
+          "keywordScore": null,
+          "rrfScore": 0.0161290322580645,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 3,
+          "chunkId": "d8f8c843-a117-490a-a5fb-29a4e3befdf9",
+          "externalRef": "hsis3",
+          "title": "Getting to grips with hoisting people (HSIS3)",
+          "pageStart": 6,
+          "pageEnd": 7,
+          "vectorRank": 3,
+          "keywordRank": null,
+          "vectorScore": 0.706274015085342,
+          "keywordScore": null,
+          "rrfScore": 0.0158730158730159,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 4,
+          "chunkId": "ec7ccddc-11e1-401e-8a54-f175d33799fc",
+          "externalRef": "hsis3",
+          "title": "Getting to grips with hoisting people (HSIS3)",
+          "pageStart": 1,
+          "pageEnd": 2,
+          "vectorRank": 4,
+          "keywordRank": null,
+          "vectorScore": 0.705131947994232,
+          "keywordScore": null,
+          "rrfScore": 0.015625,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 5,
+          "chunkId": "8cc38638-9c08-41db-a423-870e5f4afea5",
+          "externalRef": "hsis3",
+          "title": "Getting to grips with hoisting people (HSIS3)",
+          "pageStart": 3,
+          "pageEnd": 4,
+          "vectorRank": 5,
+          "keywordRank": null,
+          "vectorScore": 0.702673217733897,
+          "keywordScore": null,
+          "rrfScore": 0.0153846153846154,
+          "rerankScore": null,
+          "relevant": true
+        }
+      ],
+      "hit_at_5": true,
+      "doc_hit_at_5": true,
+      "rr": 1.0,
+      "first_relevant_rank": 1
+    },
+    {
+      "id": "q11",
+      "question": "Should people riding quad bikes (ATVs) on farms wear helmets, and which kinds are suitable?",
+      "answerable": true,
+      "expected": [
+        {
+          "external_ref": "ais33",
+          "pages": [
+            2
+          ]
+        }
+      ],
+      "latency_ms": 51,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunkId": "a30c765a-f8a4-4436-bb47-8c82192f5666",
+          "externalRef": "ais33",
+          "title": "Safe use of all-terrain vehicles (ATVs) in agriculture and forestry (AIS33)",
+          "pageStart": 2,
+          "pageEnd": 2,
+          "vectorRank": 1,
+          "keywordRank": null,
+          "vectorScore": 0.81970603348577,
+          "keywordScore": null,
+          "rrfScore": 0.0163934426229508,
+          "rerankScore": null,
+          "relevant": true
+        },
+        {
+          "rank": 2,
+          "chunkId": "8ae610fd-026f-4ea1-9e5a-8022bc97481f",
+          "externalRef": "ais33",
+          "title": "Safe use of all-terrain vehicles (ATVs) in agriculture and forestry (AIS33)",
+          "pageStart": 2,
+          "pageEnd": 3,
+          "vectorRank": 2,
+          "keywordRank": null,
+          "vectorScore": 0.768499626606726,
+          "keywordScore": null,
+          "rrfScore": 0.0161290322580645,
+          "rerankScore": null,
+          "relevant": true
+        },
+        {
+          "rank": 3,
+          "chunkId": "574b5ef1-871b-4bd1-a8f6-2053d3e1398a",
+          "externalRef": "ais33",
+          "title": "Safe use of all-terrain vehicles (ATVs) in agriculture and forestry (AIS33)",
+          "pageStart": 1,
+          "pageEnd": 2,
+          "vectorRank": 3,
+          "keywordRank": null,
+          "vectorScore": 0.756198786383831,
+          "keywordScore": null,
+          "rrfScore": 0.0158730158730159,
+          "rerankScore": null,
+          "relevant": true
+        },
+        {
+          "rank": 4,
+          "chunkId": "ab682ff1-fe04-4f31-ad3c-fc63f126e6ff",
+          "externalRef": "ais33",
+          "title": "Safe use of all-terrain vehicles (ATVs) in agriculture and forestry (AIS33)",
+          "pageStart": 1,
+          "pageEnd": 1,
+          "vectorRank": 4,
+          "keywordRank": null,
+          "vectorScore": 0.753311619359949,
+          "keywordScore": null,
+          "rrfScore": 0.015625,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 5,
+          "chunkId": "4302c745-384b-447a-b3e8-9d9126fc2ff7",
+          "externalRef": "ais33",
+          "title": "Safe use of all-terrain vehicles (ATVs) in agriculture and forestry (AIS33)",
+          "pageStart": 3,
+          "pageEnd": 4,
+          "vectorRank": 5,
+          "keywordRank": null,
+          "vectorScore": 0.737522028014721,
+          "keywordScore": null,
+          "rrfScore": 0.0153846153846154,
+          "rerankScore": null,
+          "relevant": false
+        }
+      ],
+      "hit_at_5": true,
+      "doc_hit_at_5": true,
+      "rr": 1.0,
+      "first_relevant_rank": 1
+    },
+    {
+      "id": "q12",
+      "question": "Can children ride on tractors on a farm?",
+      "answerable": true,
+      "expected": [
+        {
+          "external_ref": "hsg270",
+          "pages": [
+            35
+          ]
+        }
+      ],
+      "latency_ms": 49,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunkId": "755f70f7-224f-43ce-a65d-dbcf548985ce",
+          "externalRef": "hsg270",
+          "title": "Farmwise: your essential guide to health and safety in agriculture (HSG270)",
+          "pageStart": 35,
+          "pageEnd": 35,
+          "vectorRank": 1,
+          "keywordRank": null,
+          "vectorScore": 0.840920953585933,
+          "keywordScore": null,
+          "rrfScore": 0.0163934426229508,
+          "rerankScore": null,
+          "relevant": true
+        },
+        {
+          "rank": 2,
+          "chunkId": "8829f9bb-12f0-4d85-9e97-97847f1e9d08",
+          "externalRef": "hsg270",
+          "title": "Farmwise: your essential guide to health and safety in agriculture (HSG270)",
+          "pageStart": 35,
+          "pageEnd": 36,
+          "vectorRank": 2,
+          "keywordRank": null,
+          "vectorScore": 0.805084156535501,
+          "keywordScore": null,
+          "rrfScore": 0.0161290322580645,
+          "rerankScore": null,
+          "relevant": true
+        },
+        {
+          "rank": 3,
+          "chunkId": "6aa88f56-99e3-4690-b09a-c664420a46de",
+          "externalRef": "hsg270",
+          "title": "Farmwise: your essential guide to health and safety in agriculture (HSG270)",
+          "pageStart": 34,
+          "pageEnd": 35,
+          "vectorRank": 3,
+          "keywordRank": null,
+          "vectorScore": 0.778004791974456,
+          "keywordScore": null,
+          "rrfScore": 0.0158730158730159,
+          "rerankScore": null,
+          "relevant": true
+        },
+        {
+          "rank": 4,
+          "chunkId": "36ce9b17-2737-41ba-ae16-7eb802d27a3c",
+          "externalRef": "hsg270",
+          "title": "Farmwise: your essential guide to health and safety in agriculture (HSG270)",
+          "pageStart": 24,
+          "pageEnd": 25,
+          "vectorRank": 4,
+          "keywordRank": null,
+          "vectorScore": 0.745756775646599,
+          "keywordScore": null,
+          "rrfScore": 0.015625,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 5,
+          "chunkId": "769f7a04-1003-4c42-b242-46da5b698651",
+          "externalRef": "hsg270",
+          "title": "Farmwise: your essential guide to health and safety in agriculture (HSG270)",
+          "pageStart": 36,
+          "pageEnd": 36,
+          "vectorRank": 5,
+          "keywordRank": null,
+          "vectorScore": 0.735596688318653,
+          "keywordScore": null,
+          "rrfScore": 0.0153846153846154,
+          "rerankScore": null,
+          "relevant": false
+        }
+      ],
+      "hit_at_5": true,
+      "doc_hit_at_5": true,
+      "rr": 1.0,
+      "first_relevant_rank": 1
+    },
+    {
+      "id": "q13",
+      "question": "What is the workplace exposure limit for respirable crystalline silica?",
+      "answerable": true,
+      "expected": [
+        {
+          "external_ref": "indg463",
+          "pages": [
+            3
+          ]
+        }
+      ],
+      "latency_ms": 60,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunkId": "1a5074ca-3a1e-401b-bf54-6af9f46fc059",
+          "externalRef": "indg463",
+          "title": "Control of exposure to silica dust: a guide for employees",
+          "pageStart": 2,
+          "pageEnd": 3,
+          "vectorRank": 1,
+          "keywordRank": null,
+          "vectorScore": 0.763263798854837,
+          "keywordScore": null,
+          "rrfScore": 0.0163934426229508,
+          "rerankScore": null,
+          "relevant": true
+        },
+        {
+          "rank": 2,
+          "chunkId": "74e57df7-4d17-4053-8504-dc92eb9fb8a8",
+          "externalRef": "indg463",
+          "title": "Control of exposure to silica dust: a guide for employees",
+          "pageStart": 1,
+          "pageEnd": 2,
+          "vectorRank": 2,
+          "keywordRank": null,
+          "vectorScore": 0.741903856879244,
+          "keywordScore": null,
+          "rrfScore": 0.0161290322580645,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 3,
+          "chunkId": "da1df6aa-9e2c-4f9b-af36-81baeb07dc63",
+          "externalRef": "indg463",
+          "title": "Control of exposure to silica dust: a guide for employees",
+          "pageStart": 1,
+          "pageEnd": 2,
+          "vectorRank": 3,
+          "keywordRank": null,
+          "vectorScore": 0.740461530575393,
+          "keywordScore": null,
+          "rrfScore": 0.0158730158730159,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 4,
+          "chunkId": "846f2e6d-0554-467b-8c6d-dd8ca373af6a",
+          "externalRef": "indg463",
+          "title": "Control of exposure to silica dust: a guide for employees",
+          "pageStart": 4,
+          "pageEnd": 5,
+          "vectorRank": 4,
+          "keywordRank": null,
+          "vectorScore": 0.731225745008843,
+          "keywordScore": null,
+          "rrfScore": 0.015625,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 5,
+          "chunkId": "2bb248d3-b179-455b-b658-8bad54ad0034",
+          "externalRef": "indg463",
+          "title": "Control of exposure to silica dust: a guide for employees",
+          "pageStart": 3,
+          "pageEnd": 4,
+          "vectorRank": 5,
+          "keywordRank": null,
+          "vectorScore": 0.728903965419296,
+          "keywordScore": null,
+          "rrfScore": 0.0153846153846154,
+          "rerankScore": null,
+          "relevant": true
+        }
+      ],
+      "hit_at_5": true,
+      "doc_hit_at_5": true,
+      "rr": 1.0,
+      "first_relevant_rank": 1
+    },
+    {
+      "id": "q14",
+      "question": "What toilet and washing facilities need to be provided on a construction site?",
+      "answerable": true,
+      "expected": [
+        {
+          "external_ref": "cis59",
+          "pages": [
+            1,
+            2
+          ]
+        }
+      ],
+      "latency_ms": 41,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunkId": "6c8470b6-757f-47f7-9859-71e77c6743f2",
+          "externalRef": "cis59",
+          "title": "Provision of welfare facilities during construction work (CIS59)",
+          "pageStart": 4,
+          "pageEnd": 4,
+          "vectorRank": 1,
+          "keywordRank": null,
+          "vectorScore": 0.820775768664394,
+          "keywordScore": null,
+          "rrfScore": 0.0163934426229508,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 2,
+          "chunkId": "f7b53ef8-e8a0-4fba-9734-c5bff2dbbcba",
+          "externalRef": "cis59",
+          "title": "Provision of welfare facilities during construction work (CIS59)",
+          "pageStart": 2,
+          "pageEnd": 2,
+          "vectorRank": 2,
+          "keywordRank": null,
+          "vectorScore": 0.814905714100272,
+          "keywordScore": null,
+          "rrfScore": 0.0161290322580645,
+          "rerankScore": null,
+          "relevant": true
+        },
+        {
+          "rank": 3,
+          "chunkId": "2b47b726-cbd2-4e57-b8c1-2178a6490feb",
+          "externalRef": "cis59",
+          "title": "Provision of welfare facilities during construction work (CIS59)",
+          "pageStart": 1,
+          "pageEnd": 2,
+          "vectorRank": 3,
+          "keywordRank": null,
+          "vectorScore": 0.78682262976036,
+          "keywordScore": null,
+          "rrfScore": 0.0158730158730159,
+          "rerankScore": null,
+          "relevant": true
+        },
+        {
+          "rank": 4,
+          "chunkId": "2821eb89-83e2-4542-9f6e-679aae29c235",
+          "externalRef": "cis59",
+          "title": "Provision of welfare facilities during construction work (CIS59)",
+          "pageStart": 3,
+          "pageEnd": 4,
+          "vectorRank": 4,
+          "keywordRank": null,
+          "vectorScore": 0.785688783444317,
+          "keywordScore": null,
+          "rrfScore": 0.015625,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 5,
+          "chunkId": "037370f4-8abf-495d-8029-36d82e6460ac",
+          "externalRef": "cis59",
+          "title": "Provision of welfare facilities during construction work (CIS59)",
+          "pageStart": 2,
+          "pageEnd": 3,
+          "vectorRank": 5,
+          "keywordRank": null,
+          "vectorScore": 0.778151717406312,
+          "keywordScore": null,
+          "rrfScore": 0.0153846153846154,
+          "rerankScore": null,
+          "relevant": true
+        }
+      ],
+      "hit_at_5": true,
+      "doc_hit_at_5": true,
+      "rr": 0.5,
+      "first_relevant_rank": 2
+    },
+    {
+      "id": "q15",
+      "question": "How many workers in Great Britain suffered from work-related ill health in 2024/25?",
+      "answerable": true,
+      "expected": [
+        {
+          "external_ref": "hssh2425",
+          "pages": [
+            2,
+            3
+          ]
+        }
+      ],
+      "latency_ms": 52,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunkId": "c74303f3-3830-45ef-a0a3-8647f91a85e2",
+          "externalRef": "hssh2425",
+          "title": "Health and safety at work: summary statistics for Great Britain 2025",
+          "pageStart": 1,
+          "pageEnd": 2,
+          "vectorRank": 1,
+          "keywordRank": null,
+          "vectorScore": 0.870005019306839,
+          "keywordScore": null,
+          "rrfScore": 0.0163934426229508,
+          "rerankScore": null,
+          "relevant": true
+        },
+        {
+          "rank": 2,
+          "chunkId": "3b7e4e73-4d1f-49e9-a2f5-96f1e16a1b22",
+          "externalRef": "hssh2324",
+          "title": "Health and safety at work: summary statistics for Great Britain 2024",
+          "pageStart": 1,
+          "pageEnd": 2,
+          "vectorRank": 2,
+          "keywordRank": null,
+          "vectorScore": 0.869530693348563,
+          "keywordScore": null,
+          "rrfScore": 0.0161290322580645,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 3,
+          "chunkId": "0d70965a-a56b-4c2e-9f79-3279d5b3987a",
+          "externalRef": "hssh2425",
+          "title": "Health and safety at work: summary statistics for Great Britain 2025",
+          "pageStart": 2,
+          "pageEnd": 3,
+          "vectorRank": 3,
+          "keywordRank": null,
+          "vectorScore": 0.857476838977527,
+          "keywordScore": null,
+          "rrfScore": 0.0158730158730159,
+          "rerankScore": null,
+          "relevant": true
+        },
+        {
+          "rank": 4,
+          "chunkId": "56a53cab-595e-422c-98f6-ff5f1ffe150b",
+          "externalRef": "hssh2324",
+          "title": "Health and safety at work: summary statistics for Great Britain 2024",
+          "pageStart": 2,
+          "pageEnd": 3,
+          "vectorRank": 4,
+          "keywordRank": null,
+          "vectorScore": 0.851878660693328,
+          "keywordScore": null,
+          "rrfScore": 0.015625,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 5,
+          "chunkId": "79bd8d1f-db53-43ac-b8a1-a746dc8e6e89",
+          "externalRef": "hssh2223",
+          "title": "Health and safety at work: summary statistics for Great Britain 2023",
+          "pageStart": 1,
+          "pageEnd": 2,
+          "vectorRank": 5,
+          "keywordRank": null,
+          "vectorScore": 0.844885085675568,
+          "keywordScore": null,
+          "rrfScore": 0.0153846153846154,
+          "rerankScore": null,
+          "relevant": false
+        }
+      ],
+      "hit_at_5": true,
+      "doc_hit_at_5": true,
+      "rr": 1.0,
+      "first_relevant_rank": 1
+    },
+    {
+      "id": "q16",
+      "question": "What was the estimated number of workers with work-related ill health in 2023/24?",
+      "answerable": true,
+      "expected": [
+        {
+          "external_ref": "hssh2324",
+          "pages": [
+            2,
+            3
+          ]
+        }
+      ],
+      "latency_ms": 51,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunkId": "56a53cab-595e-422c-98f6-ff5f1ffe150b",
+          "externalRef": "hssh2324",
+          "title": "Health and safety at work: summary statistics for Great Britain 2024",
+          "pageStart": 2,
+          "pageEnd": 3,
+          "vectorRank": 1,
+          "keywordRank": null,
+          "vectorScore": 0.824695622185006,
+          "keywordScore": null,
+          "rrfScore": 0.0163934426229508,
+          "rerankScore": null,
+          "relevant": true
+        },
+        {
+          "rank": 2,
+          "chunkId": "3b7e4e73-4d1f-49e9-a2f5-96f1e16a1b22",
+          "externalRef": "hssh2324",
+          "title": "Health and safety at work: summary statistics for Great Britain 2024",
+          "pageStart": 1,
+          "pageEnd": 2,
+          "vectorRank": 2,
+          "keywordRank": null,
+          "vectorScore": 0.818927859695919,
+          "keywordScore": null,
+          "rrfScore": 0.0161290322580645,
+          "rerankScore": null,
+          "relevant": true
+        },
+        {
+          "rank": 3,
+          "chunkId": "89481d1c-180f-42f1-b7bb-15f5c5198bee",
+          "externalRef": "hssh2223",
+          "title": "Health and safety at work: summary statistics for Great Britain 2023",
+          "pageStart": 2,
+          "pageEnd": 3,
+          "vectorRank": 3,
+          "keywordRank": null,
+          "vectorScore": 0.817676270534881,
+          "keywordScore": null,
+          "rrfScore": 0.0158730158730159,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 4,
+          "chunkId": "79bd8d1f-db53-43ac-b8a1-a746dc8e6e89",
+          "externalRef": "hssh2223",
+          "title": "Health and safety at work: summary statistics for Great Britain 2023",
+          "pageStart": 1,
+          "pageEnd": 2,
+          "vectorRank": 4,
+          "keywordRank": null,
+          "vectorScore": 0.812696445745018,
+          "keywordScore": null,
+          "rrfScore": 0.015625,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 5,
+          "chunkId": "0d70965a-a56b-4c2e-9f79-3279d5b3987a",
+          "externalRef": "hssh2425",
+          "title": "Health and safety at work: summary statistics for Great Britain 2025",
+          "pageStart": 2,
+          "pageEnd": 3,
+          "vectorRank": 5,
+          "keywordRank": null,
+          "vectorScore": 0.804746890209523,
+          "keywordScore": null,
+          "rrfScore": 0.0153846153846154,
+          "rerankScore": null,
+          "relevant": false
+        }
+      ],
+      "hit_at_5": true,
+      "doc_hit_at_5": true,
+      "rr": 1.0,
+      "first_relevant_rank": 1
+    },
+    {
+      "id": "q17",
+      "question": "How many construction workers were killed at work in 2024/25?",
+      "answerable": true,
+      "expected": [
+        {
+          "external_ref": "hse-stats-construction-2025",
+          "pages": [
+            5,
+            17
+          ]
+        }
+      ],
+      "latency_ms": 51,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunkId": "7cfbffbf-0f56-42aa-ab7b-7aa0f9008c8f",
+          "externalRef": "hse-stats-construction-2025",
+          "title": "Construction statistics in Great Britain, 2025",
+          "pageStart": 16,
+          "pageEnd": 19,
+          "vectorRank": 1,
+          "keywordRank": null,
+          "vectorScore": 0.759939812420005,
+          "keywordScore": null,
+          "rrfScore": 0.0163934426229508,
+          "rerankScore": null,
+          "relevant": true
+        },
+        {
+          "rank": 2,
+          "chunkId": "2ebbcef3-4c7b-406f-8b10-a25ced741d8a",
+          "externalRef": "hse-stats-construction-2025",
+          "title": "Construction statistics in Great Britain, 2025",
+          "pageStart": 19,
+          "pageEnd": 21,
+          "vectorRank": 2,
+          "keywordRank": null,
+          "vectorScore": 0.758334823697942,
+          "keywordScore": null,
+          "rrfScore": 0.0161290322580645,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 3,
+          "chunkId": "4684fdc6-2030-4f0b-b99e-dbfa0bfa1069",
+          "externalRef": "hse-stats-construction-2025",
+          "title": "Construction statistics in Great Britain, 2025",
+          "pageStart": 5,
+          "pageEnd": 8,
+          "vectorRank": 3,
+          "keywordRank": null,
+          "vectorScore": 0.748613834381104,
+          "keywordScore": null,
+          "rrfScore": 0.0158730158730159,
+          "rerankScore": null,
+          "relevant": true
+        },
+        {
+          "rank": 4,
+          "chunkId": "a93b263d-efef-4dfd-adf2-e793ce860fbd",
+          "externalRef": "hse-stats-construction-2025",
+          "title": "Construction statistics in Great Britain, 2025",
+          "pageStart": 23,
+          "pageEnd": 25,
+          "vectorRank": 4,
+          "keywordRank": null,
+          "vectorScore": 0.742676258087158,
+          "keywordScore": null,
+          "rrfScore": 0.015625,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 5,
+          "chunkId": "e2e8e003-5a43-4589-86b1-589c934744c8",
+          "externalRef": "hssh2324",
+          "title": "Health and safety at work: summary statistics for Great Britain 2024",
+          "pageStart": 6,
+          "pageEnd": 7,
+          "vectorRank": 5,
+          "keywordRank": null,
+          "vectorScore": 0.729348794856741,
+          "keywordScore": null,
+          "rrfScore": 0.0153846153846154,
+          "rerankScore": null,
+          "relevant": false
+        }
+      ],
+      "hit_at_5": true,
+      "doc_hit_at_5": true,
+      "rr": 1.0,
+      "first_relevant_rank": 1
+    },
+    {
+      "id": "q18",
+      "question": "How many fatal injuries to workers were there in agriculture, forestry and fishing in 2024/25?",
+      "answerable": true,
+      "expected": [
+        {
+          "external_ref": "hse-stats-agriculture-2025",
+          "pages": [
+            5,
+            15
+          ]
+        }
+      ],
+      "latency_ms": 79,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunkId": "b7dfc9d2-effc-434c-a066-67f7174431c4",
+          "externalRef": "hse-stats-agriculture-2025",
+          "title": "Agriculture, forestry and fishing statistics in Great Britain, 2025",
+          "pageStart": 15,
+          "pageEnd": 17,
+          "vectorRank": 1,
+          "keywordRank": null,
+          "vectorScore": 0.880718748505237,
+          "keywordScore": null,
+          "rrfScore": 0.0163934426229508,
+          "rerankScore": null,
+          "relevant": true
+        },
+        {
+          "rank": 2,
+          "chunkId": "4feeb812-a41e-465e-bb2e-8a9b9a048703",
+          "externalRef": "hse-stats-agriculture-2025",
+          "title": "Agriculture, forestry and fishing statistics in Great Britain, 2025",
+          "pageStart": 5,
+          "pageEnd": 7,
+          "vectorRank": 2,
+          "keywordRank": null,
+          "vectorScore": 0.870363738249652,
+          "keywordScore": null,
+          "rrfScore": 0.0161290322580645,
+          "rerankScore": null,
+          "relevant": true
+        },
+        {
+          "rank": 3,
+          "chunkId": "dfb34f7d-36b8-4d2a-a73b-3e7daa5658ca",
+          "externalRef": "hse-stats-agriculture-2025",
+          "title": "Agriculture, forestry and fishing statistics in Great Britain, 2025",
+          "pageStart": 17,
+          "pageEnd": 19,
+          "vectorRank": 3,
+          "keywordRank": null,
+          "vectorScore": 0.85139270288283,
+          "keywordScore": null,
+          "rrfScore": 0.0158730158730159,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 4,
+          "chunkId": "3afd9e80-6dfc-4427-9c0b-ef4572c71d58",
+          "externalRef": "hse-stats-agriculture-2025",
+          "title": "Agriculture, forestry and fishing statistics in Great Britain, 2025",
+          "pageStart": 1,
+          "pageEnd": 5,
+          "vectorRank": 4,
+          "keywordRank": null,
+          "vectorScore": 0.833399881923192,
+          "keywordScore": null,
+          "rrfScore": 0.015625,
+          "rerankScore": null,
+          "relevant": true
+        },
+        {
+          "rank": 5,
+          "chunkId": "d8dbefe3-bf4c-4a85-b2ed-63ade441eb77",
+          "externalRef": "hse-stats-agriculture-2025",
+          "title": "Agriculture, forestry and fishing statistics in Great Britain, 2025",
+          "pageStart": 19,
+          "pageEnd": 21,
+          "vectorRank": 5,
+          "keywordRank": null,
+          "vectorScore": 0.816666711370153,
+          "keywordScore": null,
+          "rrfScore": 0.0153846153846154,
+          "rerankScore": null,
+          "relevant": false
+        }
+      ],
+      "hit_at_5": true,
+      "doc_hit_at_5": true,
+      "rr": 1.0,
+      "first_relevant_rank": 1
+    },
+    {
+      "id": "q19",
+      "question": "How many manufacturing workers suffer from work-related ill health?",
+      "answerable": true,
+      "expected": [
+        {
+          "external_ref": "hse-stats-manufacturing-2025",
+          "pages": [
+            4,
+            9
+          ]
+        }
+      ],
+      "latency_ms": 41,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunkId": "7ae436e6-e029-497f-8f52-d4a868c6c7c0",
+          "externalRef": "hse-stats-manufacturing-2025",
+          "title": "Manufacturing statistics in Great Britain, 2025",
+          "pageStart": 9,
+          "pageEnd": 11,
+          "vectorRank": 1,
+          "keywordRank": null,
+          "vectorScore": 0.769975758493672,
+          "keywordScore": null,
+          "rrfScore": 0.0163934426229508,
+          "rerankScore": null,
+          "relevant": true
+        },
+        {
+          "rank": 2,
+          "chunkId": "8b9656d7-f1be-4000-99a1-066e1aa4e517",
+          "externalRef": "hse-stats-manufacturing-2025",
+          "title": "Manufacturing statistics in Great Britain, 2025",
+          "pageStart": 18,
+          "pageEnd": 20,
+          "vectorRank": 2,
+          "keywordRank": null,
+          "vectorScore": 0.756096005439764,
+          "keywordScore": null,
+          "rrfScore": 0.0161290322580645,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 3,
+          "chunkId": "303f1273-bfe7-43c2-a604-a5fde9b442b4",
+          "externalRef": "hse-stats-manufacturing-2025",
+          "title": "Manufacturing statistics in Great Britain, 2025",
+          "pageStart": 13,
+          "pageEnd": 16,
+          "vectorRank": 3,
+          "keywordRank": null,
+          "vectorScore": 0.74000389933563,
+          "keywordScore": null,
+          "rrfScore": 0.0158730158730159,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 4,
+          "chunkId": "89481d1c-180f-42f1-b7bb-15f5c5198bee",
+          "externalRef": "hssh2223",
+          "title": "Health and safety at work: summary statistics for Great Britain 2023",
+          "pageStart": 2,
+          "pageEnd": 3,
+          "vectorRank": 4,
+          "keywordRank": null,
+          "vectorScore": 0.739411488806518,
+          "keywordScore": null,
+          "rrfScore": 0.015625,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 5,
+          "chunkId": "56a53cab-595e-422c-98f6-ff5f1ffe150b",
+          "externalRef": "hssh2324",
+          "title": "Health and safety at work: summary statistics for Great Britain 2024",
+          "pageStart": 2,
+          "pageEnd": 3,
+          "vectorRank": 5,
+          "keywordRank": null,
+          "vectorScore": 0.739272446719116,
+          "keywordScore": null,
+          "rrfScore": 0.0153846153846154,
+          "rerankScore": null,
+          "relevant": false
+        }
+      ],
+      "hit_at_5": true,
+      "doc_hit_at_5": true,
+      "rr": 1.0,
+      "first_relevant_rank": 1
+    },
+    {
+      "id": "q20",
+      "question": "What three areas does HSE's workplace transport guidance organise risk controls around?",
+      "answerable": true,
+      "expected": [
+        {
+          "external_ref": "hsg136",
+          "pages": [
+            1,
+            4
+          ]
+        }
+      ],
+      "latency_ms": 45,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunkId": "1e2a43d8-f24b-4423-9006-2c94cb082855",
+          "externalRef": "hsg136",
+          "title": "A guide to workplace transport safety (HSG136)",
+          "pageStart": 5,
+          "pageEnd": 6,
+          "vectorRank": 1,
+          "keywordRank": null,
+          "vectorScore": 0.828882157802588,
+          "keywordScore": null,
+          "rrfScore": 0.0163934426229508,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 2,
+          "chunkId": "cb9e572f-83e8-4aa7-8432-4a0e086d3531",
+          "externalRef": "hsg136",
+          "title": "A guide to workplace transport safety (HSG136)",
+          "pageStart": 1,
+          "pageEnd": 2,
+          "vectorRank": 2,
+          "keywordRank": null,
+          "vectorScore": 0.81616203881276,
+          "keywordScore": null,
+          "rrfScore": 0.0161290322580645,
+          "rerankScore": null,
+          "relevant": true
+        },
+        {
+          "rank": 3,
+          "chunkId": "ff0e0303-b6d6-4c7a-a531-c252f9855264",
+          "externalRef": "hsg136",
+          "title": "A guide to workplace transport safety (HSG136)",
+          "pageStart": 3,
+          "pageEnd": 4,
+          "vectorRank": 3,
+          "keywordRank": null,
+          "vectorScore": 0.803373515605932,
+          "keywordScore": null,
+          "rrfScore": 0.0158730158730159,
+          "rerankScore": null,
+          "relevant": true
+        },
+        {
+          "rank": 4,
+          "chunkId": "ceb8998f-1a52-431c-989d-3bafdb2c2db7",
+          "externalRef": "hsg136",
+          "title": "A guide to workplace transport safety (HSG136)",
+          "pageStart": 6,
+          "pageEnd": 7,
+          "vectorRank": 4,
+          "keywordRank": null,
+          "vectorScore": 0.802958858277696,
+          "keywordScore": null,
+          "rrfScore": 0.015625,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 5,
+          "chunkId": "1736f1ad-d029-4405-820e-764aed227c12",
+          "externalRef": "hsg136",
+          "title": "A guide to workplace transport safety (HSG136)",
+          "pageStart": 52,
+          "pageEnd": 53,
+          "vectorRank": 5,
+          "keywordRank": null,
+          "vectorScore": 0.799947965142011,
+          "keywordScore": null,
+          "rrfScore": 0.0153846153846154,
+          "rerankScore": null,
+          "relevant": false
+        }
+      ],
+      "hit_at_5": true,
+      "doc_hit_at_5": true,
+      "rr": 0.5,
+      "first_relevant_rank": 2
+    },
+    {
+      "id": "q21",
+      "question": "What health risks do isocyanate paints pose to SMART repair sprayers?",
+      "answerable": true,
+      "expected": [
+        {
+          "external_ref": "indg473",
+          "pages": [
+            1
+          ]
+        }
+      ],
+      "latency_ms": 59,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunkId": "ec27f15f-1a67-44cb-98e5-81242d96f8ca",
+          "externalRef": "indg473",
+          "title": "SMART paint spraying: how to control health and safety risks",
+          "pageStart": 3,
+          "pageEnd": 4,
+          "vectorRank": 1,
+          "keywordRank": null,
+          "vectorScore": 0.876002073287964,
+          "keywordScore": null,
+          "rrfScore": 0.0163934426229508,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 2,
+          "chunkId": "0b1e8ce2-295b-46fb-8226-0c71574716d3",
+          "externalRef": "indg473",
+          "title": "SMART paint spraying: how to control health and safety risks",
+          "pageStart": 7,
+          "pageEnd": 8,
+          "vectorRank": 2,
+          "keywordRank": null,
+          "vectorScore": 0.85164213180542,
+          "keywordScore": null,
+          "rrfScore": 0.0161290322580645,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 3,
+          "chunkId": "1f79fb8d-a12a-4ba5-aabe-4e833ace9a43",
+          "externalRef": "indg473",
+          "title": "SMART paint spraying: how to control health and safety risks",
+          "pageStart": 1,
+          "pageEnd": 2,
+          "vectorRank": 3,
+          "keywordRank": null,
+          "vectorScore": 0.838865280151367,
+          "keywordScore": null,
+          "rrfScore": 0.0158730158730159,
+          "rerankScore": null,
+          "relevant": true
+        },
+        {
+          "rank": 4,
+          "chunkId": "c08cfd9e-368c-4998-b3c2-9f6bb9e06ed8",
+          "externalRef": "indg473",
+          "title": "SMART paint spraying: how to control health and safety risks",
+          "pageStart": 6,
+          "pageEnd": 7,
+          "vectorRank": 4,
+          "keywordRank": null,
+          "vectorScore": 0.790076076984406,
+          "keywordScore": null,
+          "rrfScore": 0.015625,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 5,
+          "chunkId": "8b90222d-4c7c-4c1e-84f2-1ba7c6d67884",
+          "externalRef": "indg473",
+          "title": "SMART paint spraying: how to control health and safety risks",
+          "pageStart": 8,
+          "pageEnd": 8,
+          "vectorRank": 5,
+          "keywordRank": null,
+          "vectorScore": 0.788478314876556,
+          "keywordScore": null,
+          "rrfScore": 0.0153846153846154,
+          "rerankScore": null,
+          "relevant": false
+        }
+      ],
+      "hit_at_5": true,
+      "doc_hit_at_5": true,
+      "rr": 0.3333333333333333,
+      "first_relevant_rank": 3
+    },
+    {
+      "id": "q22",
+      "question": "Who should carry out face-fit testing of respiratory protective equipment?",
+      "answerable": true,
+      "expected": [
+        {
+          "external_ref": "indg479",
+          "pages": [
+            3
+          ]
+        }
+      ],
+      "latency_ms": 62,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunkId": "54e0892c-44e8-4bea-9500-bd91d1e7348b",
+          "externalRef": "indg479",
+          "title": "Guidance on respiratory protective equipment (RPE) fit testing",
+          "pageStart": 3,
+          "pageEnd": 5,
+          "vectorRank": 1,
+          "keywordRank": null,
+          "vectorScore": 0.843755261041695,
+          "keywordScore": null,
+          "rrfScore": 0.0163934426229508,
+          "rerankScore": null,
+          "relevant": true
+        },
+        {
+          "rank": 2,
+          "chunkId": "4731a8be-05d5-4846-98cf-0249f34747a2",
+          "externalRef": "indg479",
+          "title": "Guidance on respiratory protective equipment (RPE) fit testing",
+          "pageStart": 11,
+          "pageEnd": 12,
+          "vectorRank": 2,
+          "keywordRank": null,
+          "vectorScore": 0.838370507712741,
+          "keywordScore": null,
+          "rrfScore": 0.0161290322580645,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 3,
+          "chunkId": "060115f9-70f4-4cce-822d-3af25e647e2e",
+          "externalRef": "indg479",
+          "title": "Guidance on respiratory protective equipment (RPE) fit testing",
+          "pageStart": 12,
+          "pageEnd": 14,
+          "vectorRank": 3,
+          "keywordRank": null,
+          "vectorScore": 0.832968975096017,
+          "keywordScore": null,
+          "rrfScore": 0.0158730158730159,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 4,
+          "chunkId": "7acc1494-ec7e-462b-8cab-b304d1b388a5",
+          "externalRef": "indg479",
+          "title": "Guidance on respiratory protective equipment (RPE) fit testing",
+          "pageStart": 10,
+          "pageEnd": 11,
+          "vectorRank": 4,
+          "keywordRank": null,
+          "vectorScore": 0.829014519335572,
+          "keywordScore": null,
+          "rrfScore": 0.015625,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 5,
+          "chunkId": "99d1f9cd-1d64-4729-a936-4e1b7cabb46b",
+          "externalRef": "indg479",
+          "title": "Guidance on respiratory protective equipment (RPE) fit testing",
+          "pageStart": 5,
+          "pageEnd": 6,
+          "vectorRank": 5,
+          "keywordRank": null,
+          "vectorScore": 0.821304703393719,
+          "keywordScore": null,
+          "rrfScore": 0.0153846153846154,
+          "rerankScore": null,
+          "relevant": false
+        }
+      ],
+      "hit_at_5": true,
+      "doc_hit_at_5": true,
+      "rr": 1.0,
+      "first_relevant_rank": 1
+    },
+    {
+      "id": "q23",
+      "question": "What does a homeowner have to do under CDM 2015 when having building work done?",
+      "answerable": true,
+      "expected": [
+        {
+          "external_ref": "indg411",
+          "pages": [
+            5
+          ]
+        }
+      ],
+      "latency_ms": 62,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunkId": "85c27fc9-0fc2-4c1b-92c9-298e01a4a3d0",
+          "externalRef": "indg411",
+          "title": "Need building work done? A short guide for clients on the CDM Regulations 2015",
+          "pageStart": 1,
+          "pageEnd": 1,
+          "vectorRank": 1,
+          "keywordRank": null,
+          "vectorScore": 0.862924984867871,
+          "keywordScore": null,
+          "rrfScore": 0.0163934426229508,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 2,
+          "chunkId": "835938bb-80cf-4e03-95bb-de5c9a75fe37",
+          "externalRef": "l153",
+          "title": "Managing health and safety in construction: CDM 2015 guidance on regulations (L153)",
+          "pageStart": 20,
+          "pageEnd": 21,
+          "vectorRank": 2,
+          "keywordRank": null,
+          "vectorScore": 0.823898101565186,
+          "keywordScore": null,
+          "rrfScore": 0.0161290322580645,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 3,
+          "chunkId": "aee8892a-160d-4d8d-aecb-aeb8075a54fa",
+          "externalRef": "indg411",
+          "title": "Need building work done? A short guide for clients on the CDM Regulations 2015",
+          "pageStart": 4,
+          "pageEnd": 5,
+          "vectorRank": 3,
+          "keywordRank": null,
+          "vectorScore": 0.823204422688616,
+          "keywordScore": null,
+          "rrfScore": 0.0158730158730159,
+          "rerankScore": null,
+          "relevant": true
+        },
+        {
+          "rank": 4,
+          "chunkId": "39b66812-2d34-4c2b-908c-db7fe89ce1c0",
+          "externalRef": "cis80",
+          "title": "Construction phase plan (CDM 2015): what you need to know as a busy builder (CIS80)",
+          "pageStart": 1,
+          "pageEnd": 1,
+          "vectorRank": 4,
+          "keywordRank": null,
+          "vectorScore": 0.811746383063388,
+          "keywordScore": null,
+          "rrfScore": 0.015625,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 5,
+          "chunkId": "ae921a19-c061-4724-8e0e-cdecc7afc531",
+          "externalRef": "l153",
+          "title": "Managing health and safety in construction: CDM 2015 guidance on regulations (L153)",
+          "pageStart": 5,
+          "pageEnd": 6,
+          "vectorRank": 5,
+          "keywordRank": null,
+          "vectorScore": 0.810023844242096,
+          "keywordScore": null,
+          "rrfScore": 0.0153846153846154,
+          "rerankScore": null,
+          "relevant": false
+        }
+      ],
+      "hit_at_5": true,
+      "doc_hit_at_5": true,
+      "rr": 0.3333333333333333,
+      "first_relevant_rank": 3
+    },
+    {
+      "id": "q24",
+      "question": "What are the key duties under the Confined Spaces Regulations?",
+      "answerable": true,
+      "expected": [
+        {
+          "external_ref": "indg258",
+          "pages": [
+            3
+          ]
+        }
+      ],
+      "latency_ms": 34,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunkId": "2205325c-cfa2-4be9-b370-0c9a66fae37c",
+          "externalRef": "indg258",
+          "title": "Confined spaces: a brief guide to working safely",
+          "pageStart": 2,
+          "pageEnd": 3,
+          "vectorRank": 1,
+          "keywordRank": null,
+          "vectorScore": 0.767685174942017,
+          "keywordScore": null,
+          "rrfScore": 0.0163934426229508,
+          "rerankScore": null,
+          "relevant": true
+        },
+        {
+          "rank": 2,
+          "chunkId": "da459b66-903d-415d-aa9d-5d9ad386dbd2",
+          "externalRef": "indg258",
+          "title": "Confined spaces: a brief guide to working safely",
+          "pageStart": 6,
+          "pageEnd": 7,
+          "vectorRank": 2,
+          "keywordRank": null,
+          "vectorScore": 0.745658040046692,
+          "keywordScore": null,
+          "rrfScore": 0.0161290322580645,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 3,
+          "chunkId": "0664104e-8f19-40e9-88c3-39c451fbe3d3",
+          "externalRef": "indg258",
+          "title": "Confined spaces: a brief guide to working safely",
+          "pageStart": 5,
+          "pageEnd": 6,
+          "vectorRank": 3,
+          "keywordRank": null,
+          "vectorScore": 0.737944050904755,
+          "keywordScore": null,
+          "rrfScore": 0.0158730158730159,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 4,
+          "chunkId": "1cbe9e92-0f84-4a3e-8a03-7d90e69a3f20",
+          "externalRef": "indg258",
+          "title": "Confined spaces: a brief guide to working safely",
+          "pageStart": 1,
+          "pageEnd": 2,
+          "vectorRank": 4,
+          "keywordRank": null,
+          "vectorScore": 0.733692191055185,
+          "keywordScore": null,
+          "rrfScore": 0.015625,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 5,
+          "chunkId": "7861e505-551b-45b3-906f-2b79a6bad1ab",
+          "externalRef": "indg258",
+          "title": "Confined spaces: a brief guide to working safely",
+          "pageStart": 7,
+          "pageEnd": 7,
+          "vectorRank": 5,
+          "keywordRank": null,
+          "vectorScore": 0.729089931899911,
+          "keywordScore": null,
+          "rrfScore": 0.0153846153846154,
+          "rerankScore": null,
+          "relevant": false
+        }
+      ],
+      "hit_at_5": true,
+      "doc_hit_at_5": true,
+      "rr": 1.0,
+      "first_relevant_rank": 1
+    },
+    {
+      "id": "q25",
+      "question": "How should I check that a contractor is competent before hiring them?",
+      "answerable": true,
+      "expected": [
+        {
+          "external_ref": "indg368",
+          "pages": [
+            2
+          ]
+        }
+      ],
+      "latency_ms": 43,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunkId": "5d0e3393-2259-4847-b0a8-83b80aa2e1a4",
+          "externalRef": "indg368",
+          "title": "Using contractors: a brief guide",
+          "pageStart": 2,
+          "pageEnd": 3,
+          "vectorRank": 1,
+          "keywordRank": null,
+          "vectorScore": 0.785463260737853,
+          "keywordScore": null,
+          "rrfScore": 0.0163934426229508,
+          "rerankScore": null,
+          "relevant": true
+        },
+        {
+          "rank": 2,
+          "chunkId": "f26da22d-dec8-438c-af78-8d1878095e68",
+          "externalRef": "hsg159",
+          "title": "Managing contractors: a guide for employers (HSG159)",
+          "pageStart": 32,
+          "pageEnd": 33,
+          "vectorRank": 2,
+          "keywordRank": null,
+          "vectorScore": 0.783120061979292,
+          "keywordScore": null,
+          "rrfScore": 0.0161290322580645,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 3,
+          "chunkId": "5695080e-1f9c-49c5-9396-585882f2cfc2",
+          "externalRef": "hsg159",
+          "title": "Managing contractors: a guide for employers (HSG159)",
+          "pageStart": 34,
+          "pageEnd": 35,
+          "vectorRank": 3,
+          "keywordRank": null,
+          "vectorScore": 0.779191387939968,
+          "keywordScore": null,
+          "rrfScore": 0.0158730158730159,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 4,
+          "chunkId": "f3a36b69-f2d1-46be-b397-c6a38bc91813",
+          "externalRef": "hsg159",
+          "title": "Managing contractors: a guide for employers (HSG159)",
+          "pageStart": 38,
+          "pageEnd": 39,
+          "vectorRank": 4,
+          "keywordRank": null,
+          "vectorScore": 0.774581551551819,
+          "keywordScore": null,
+          "rrfScore": 0.015625,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 5,
+          "chunkId": "dcefa62b-ff0f-4a87-a25c-b0e5bd69ce26",
+          "externalRef": "l153",
+          "title": "Managing health and safety in construction: CDM 2015 guidance on regulations (L153)",
+          "pageStart": 46,
+          "pageEnd": 47,
+          "vectorRank": 5,
+          "keywordRank": null,
+          "vectorScore": 0.769194630480458,
+          "keywordScore": null,
+          "rrfScore": 0.0153846153846154,
+          "rerankScore": null,
+          "relevant": false
+        }
+      ],
+      "hit_at_5": true,
+      "doc_hit_at_5": true,
+      "rr": 1.0,
+      "first_relevant_rank": 1
+    },
+    {
+      "id": "q26",
+      "question": "What should a permit-to-work contain?",
+      "answerable": true,
+      "expected": [
+        {
+          "external_ref": "hsg159",
+          "pages": [
+            28
+          ]
+        }
+      ],
+      "latency_ms": 50,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunkId": "f7b31b38-ae13-4aa3-85fc-c00b29151bf5",
+          "externalRef": "hsg159",
+          "title": "Managing contractors: a guide for employers (HSG159)",
+          "pageStart": 27,
+          "pageEnd": 29,
+          "vectorRank": 1,
+          "keywordRank": null,
+          "vectorScore": 0.791135596700646,
+          "keywordScore": null,
+          "rrfScore": 0.0163934426229508,
+          "rerankScore": null,
+          "relevant": true
+        },
+        {
+          "rank": 2,
+          "chunkId": "7d6952a4-8375-426a-9e9c-38298bde0fac",
+          "externalRef": "hsg159",
+          "title": "Managing contractors: a guide for employers (HSG159)",
+          "pageStart": 28,
+          "pageEnd": 30,
+          "vectorRank": 2,
+          "keywordRank": null,
+          "vectorScore": 0.761226520611438,
+          "keywordScore": null,
+          "rrfScore": 0.0161290322580645,
+          "rerankScore": null,
+          "relevant": true
+        },
+        {
+          "rank": 3,
+          "chunkId": "0664104e-8f19-40e9-88c3-39c451fbe3d3",
+          "externalRef": "indg258",
+          "title": "Confined spaces: a brief guide to working safely",
+          "pageStart": 5,
+          "pageEnd": 6,
+          "vectorRank": 3,
+          "keywordRank": null,
+          "vectorScore": 0.726753142685073,
+          "keywordScore": null,
+          "rrfScore": 0.0158730158730159,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 4,
+          "chunkId": "20248de3-5a6f-441c-9cd8-80340368081a",
+          "externalRef": "l22",
+          "title": "Safe use of work equipment: PUWER 1998 \u2014 ACOP and guidance (L22)",
+          "pageStart": 10,
+          "pageEnd": 11,
+          "vectorRank": 4,
+          "keywordRank": null,
+          "vectorScore": 0.7139779967646,
+          "keywordScore": null,
+          "rrfScore": 0.015625,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 5,
+          "chunkId": "7c35b0ba-b91b-4fc8-8ed5-5218d14f4ce8",
+          "externalRef": "l22",
+          "title": "Safe use of work equipment: PUWER 1998 \u2014 ACOP and guidance (L22)",
+          "pageStart": 31,
+          "pageEnd": 32,
+          "vectorRank": 5,
+          "keywordRank": null,
+          "vectorScore": 0.711260322743087,
+          "keywordScore": null,
+          "rrfScore": 0.0153846153846154,
+          "rerankScore": null,
+          "relevant": false
+        }
+      ],
+      "hit_at_5": true,
+      "doc_hit_at_5": true,
+      "rr": 1.0,
+      "first_relevant_rank": 1
+    },
+    {
+      "id": "q27",
+      "question": "What steps must an employer work through before anyone works at height?",
+      "answerable": true,
+      "expected": [
+        {
+          "external_ref": "indg401",
+          "pages": [
+            1
+          ]
+        }
+      ],
+      "latency_ms": 64,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunkId": "f01bdc47-5944-425a-b7ab-35dcb3612aa5",
+          "externalRef": "indg401",
+          "title": "Working at height: a brief guide",
+          "pageStart": 1,
+          "pageEnd": 2,
+          "vectorRank": 1,
+          "keywordRank": null,
+          "vectorScore": 0.837149450948869,
+          "keywordScore": null,
+          "rrfScore": 0.0163934426229508,
+          "rerankScore": null,
+          "relevant": true
+        },
+        {
+          "rank": 2,
+          "chunkId": "16095f4c-b624-424f-aeda-6afd52ba27bc",
+          "externalRef": "indg401",
+          "title": "Working at height: a brief guide",
+          "pageStart": 6,
+          "pageEnd": 7,
+          "vectorRank": 2,
+          "keywordRank": null,
+          "vectorScore": 0.830804993558229,
+          "keywordScore": null,
+          "rrfScore": 0.0161290322580645,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 3,
+          "chunkId": "9f37bdbc-7d30-4551-a055-ed8e01d96e16",
+          "externalRef": "indg401",
+          "title": "Working at height: a brief guide",
+          "pageStart": 5,
+          "pageEnd": 6,
+          "vectorRank": 3,
+          "keywordRank": null,
+          "vectorScore": 0.82104229927063,
+          "keywordScore": null,
+          "rrfScore": 0.0158730158730159,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 4,
+          "chunkId": "5cecb571-0d3f-46e1-8622-e7b642a6c7cc",
+          "externalRef": "indg401",
+          "title": "Working at height: a brief guide",
+          "pageStart": 1,
+          "pageEnd": 2,
+          "vectorRank": 4,
+          "keywordRank": null,
+          "vectorScore": 0.817953407764435,
+          "keywordScore": null,
+          "rrfScore": 0.015625,
+          "rerankScore": null,
+          "relevant": true
+        },
+        {
+          "rank": 5,
+          "chunkId": "cb2823a7-fbe6-480f-9b54-64a1cec52955",
+          "externalRef": "indg401",
+          "title": "Working at height: a brief guide",
+          "pageStart": 4,
+          "pageEnd": 5,
+          "vectorRank": 5,
+          "keywordRank": null,
+          "vectorScore": 0.812621712684631,
+          "keywordScore": null,
+          "rrfScore": 0.0153846153846154,
+          "rerankScore": null,
+          "relevant": false
+        }
+      ],
+      "hit_at_5": true,
+      "doc_hit_at_5": true,
+      "rr": 1.0,
+      "first_relevant_rank": 1
+    },
+    {
+      "id": "q28",
+      "question": "Do assaults on care workers have to be reported under RIDDOR?",
+      "answerable": true,
+      "expected": [
+        {
+          "external_ref": "hsis1",
+          "pages": [
+            3
+          ]
+        }
+      ],
+      "latency_ms": 45,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunkId": "237a8346-49e8-42ba-83eb-d6041f71c162",
+          "externalRef": "indg453",
+          "title": "Reporting accidents and incidents at work: a brief guide to RIDDOR",
+          "pageStart": 1,
+          "pageEnd": 1,
+          "vectorRank": 1,
+          "keywordRank": null,
+          "vectorScore": 0.797264933586121,
+          "keywordScore": null,
+          "rrfScore": 0.0163934426229508,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 2,
+          "chunkId": "36e08977-3ec9-4266-aa41-0732d5846059",
+          "externalRef": "indg453",
+          "title": "Reporting accidents and incidents at work: a brief guide to RIDDOR",
+          "pageStart": 1,
+          "pageEnd": 2,
+          "vectorRank": 2,
+          "keywordRank": null,
+          "vectorScore": 0.779363466539178,
+          "keywordScore": null,
+          "rrfScore": 0.0161290322580645,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 3,
+          "chunkId": "363074cd-aa46-4352-ae81-85b027891679",
+          "externalRef": "indg453",
+          "title": "Reporting accidents and incidents at work: a brief guide to RIDDOR",
+          "pageStart": 4,
+          "pageEnd": 5,
+          "vectorRank": 3,
+          "keywordRank": null,
+          "vectorScore": 0.774217115295955,
+          "keywordScore": null,
+          "rrfScore": 0.0158730158730159,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 4,
+          "chunkId": "b42cd07c-eed8-4630-9f5d-ef872335a679",
+          "externalRef": "hsis1",
+          "title": "Reporting injuries, diseases and dangerous occurrences in health and social care (HSIS1)",
+          "pageStart": 1,
+          "pageEnd": 1,
+          "vectorRank": 4,
+          "keywordRank": null,
+          "vectorScore": 0.759914755821228,
+          "keywordScore": null,
+          "rrfScore": 0.015625,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 5,
+          "chunkId": "63ba3eb0-b097-435a-b03c-8e250bb78108",
+          "externalRef": "hsg65",
+          "title": "Managing for health and safety (HSG65)",
+          "pageStart": 52,
+          "pageEnd": 53,
+          "vectorRank": 5,
+          "keywordRank": null,
+          "vectorScore": 0.753697633743286,
+          "keywordScore": null,
+          "rrfScore": 0.0153846153846154,
+          "rerankScore": null,
+          "relevant": false
+        }
+      ],
+      "hit_at_5": false,
+      "doc_hit_at_5": true,
+      "rr": 0.0,
+      "first_relevant_rank": null
+    },
+    {
+      "id": "q29",
+      "question": "Does a small business with fewer than five employees have to write down its COSHH risk assessment?",
+      "answerable": true,
+      "expected": [
+        {
+          "external_ref": "indg136",
+          "pages": [
+            4
+          ]
+        }
+      ],
+      "latency_ms": 53,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunkId": "aae1f13a-ceb4-4726-9003-06ba28016407",
+          "externalRef": "hsg159",
+          "title": "Managing contractors: a guide for employers (HSG159)",
+          "pageStart": 14,
+          "pageEnd": 15,
+          "vectorRank": 1,
+          "keywordRank": null,
+          "vectorScore": 0.731491013258161,
+          "keywordScore": null,
+          "rrfScore": 0.0163934426229508,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 2,
+          "chunkId": "0c3c9859-5295-47c8-b441-689187dd6f4b",
+          "externalRef": "indg136",
+          "title": "Working with substances hazardous to health: a brief guide to COSHH",
+          "pageStart": 4,
+          "pageEnd": 4,
+          "vectorRank": 2,
+          "keywordRank": null,
+          "vectorScore": 0.725332991759004,
+          "keywordScore": null,
+          "rrfScore": 0.0161290322580645,
+          "rerankScore": null,
+          "relevant": true
+        },
+        {
+          "rank": 3,
+          "chunkId": "9f87afae-66d1-4da5-a030-173af9853e90",
+          "externalRef": "indg136",
+          "title": "Working with substances hazardous to health: a brief guide to COSHH",
+          "pageStart": 6,
+          "pageEnd": 6,
+          "vectorRank": 3,
+          "keywordRank": null,
+          "vectorScore": 0.694909393787384,
+          "keywordScore": null,
+          "rrfScore": 0.0158730158730159,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 4,
+          "chunkId": "5508ba68-424a-4de5-be77-18b29de29ecf",
+          "externalRef": "hsg65",
+          "title": "Managing for health and safety (HSG65)",
+          "pageStart": 28,
+          "pageEnd": 29,
+          "vectorRank": 4,
+          "keywordRank": null,
+          "vectorScore": 0.693435847759247,
+          "keywordScore": null,
+          "rrfScore": 0.015625,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 5,
+          "chunkId": "2f11dcfa-99c0-4909-842e-bccacb118114",
+          "externalRef": "hsg65",
+          "title": "Managing for health and safety (HSG65)",
+          "pageStart": 28,
+          "pageEnd": 30,
+          "vectorRank": 5,
+          "keywordRank": null,
+          "vectorScore": 0.689408421516418,
+          "keywordScore": null,
+          "rrfScore": 0.0153846153846154,
+          "rerankScore": null,
+          "relevant": false
+        }
+      ],
+      "hit_at_5": true,
+      "doc_hit_at_5": true,
+      "rr": 0.5,
+      "first_relevant_rank": 2
+    },
+    {
+      "id": "q30",
+      "question": "What should employers provide to support people who work alone?",
+      "answerable": true,
+      "expected": [
+        {
+          "external_ref": "indg73",
+          "pages": [
+            2
+          ]
+        }
+      ],
+      "latency_ms": 60,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunkId": "26cefe4d-823e-4dd6-a8a7-5f4b72b93d64",
+          "externalRef": "indg73",
+          "title": "Protecting lone workers: how to manage the risks of working alone",
+          "pageStart": 7,
+          "pageEnd": 8,
+          "vectorRank": 1,
+          "keywordRank": null,
+          "vectorScore": 0.790861987795293,
+          "keywordScore": null,
+          "rrfScore": 0.0163934426229508,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 2,
+          "chunkId": "c17394e8-1994-4a34-b5ce-ce6633688be7",
+          "externalRef": "indg73",
+          "title": "Protecting lone workers: how to manage the risks of working alone",
+          "pageStart": 12,
+          "pageEnd": 14,
+          "vectorRank": 2,
+          "keywordRank": null,
+          "vectorScore": 0.773080945014954,
+          "keywordScore": null,
+          "rrfScore": 0.0161290322580645,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 3,
+          "chunkId": "9c80a44c-fd90-4fab-a7c7-a72105d38755",
+          "externalRef": "indg73",
+          "title": "Protecting lone workers: how to manage the risks of working alone",
+          "pageStart": 8,
+          "pageEnd": 10,
+          "vectorRank": 3,
+          "keywordRank": null,
+          "vectorScore": 0.772942423820496,
+          "keywordScore": null,
+          "rrfScore": 0.0158730158730159,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 4,
+          "chunkId": "ee45fa02-8bb3-494c-b85a-6b0e0a7a1595",
+          "externalRef": "indg73",
+          "title": "Protecting lone workers: how to manage the risks of working alone",
+          "pageStart": 2,
+          "pageEnd": 4,
+          "vectorRank": 4,
+          "keywordRank": null,
+          "vectorScore": 0.770773635552744,
+          "keywordScore": null,
+          "rrfScore": 0.015625,
+          "rerankScore": null,
+          "relevant": true
+        },
+        {
+          "rank": 5,
+          "chunkId": "cbcfa4f4-ae18-4069-a153-89d6611a4fb2",
+          "externalRef": "indg73",
+          "title": "Protecting lone workers: how to manage the risks of working alone",
+          "pageStart": 11,
+          "pageEnd": 12,
+          "vectorRank": 5,
+          "keywordRank": null,
+          "vectorScore": 0.764729343793671,
+          "keywordScore": null,
+          "rrfScore": 0.0153846153846154,
+          "rerankScore": null,
+          "relevant": false
+        }
+      ],
+      "hit_at_5": true,
+      "doc_hit_at_5": true,
+      "rr": 0.25,
+      "first_relevant_rank": 4
+    },
+    {
+      "id": "u01",
+      "question": "What rules apply to using drones for roof surveys on construction sites?",
+      "answerable": false,
+      "expected": [],
+      "latency_ms": 49,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunkId": "31d9018b-6738-4aa3-847e-4a3d39b7f2dd",
+          "externalRef": "hsg270",
+          "title": "Farmwise: your essential guide to health and safety in agriculture (HSG270)",
+          "pageStart": 18,
+          "pageEnd": 18,
+          "vectorRank": 1,
+          "keywordRank": null,
+          "vectorScore": 0.713972645165178,
+          "keywordScore": null,
+          "rrfScore": 0.0163934426229508,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 2,
+          "chunkId": "e86ca1df-dfb2-4385-8f62-9bace8878dfe",
+          "externalRef": "l22",
+          "title": "Safe use of work equipment: PUWER 1998 \u2014 ACOP and guidance (L22)",
+          "pageStart": 61,
+          "pageEnd": 62,
+          "vectorRank": 2,
+          "keywordRank": null,
+          "vectorScore": 0.706499772876526,
+          "keywordScore": null,
+          "rrfScore": 0.0161290322580645,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 3,
+          "chunkId": "6a8679e5-9cf0-4b37-b778-266e3e08694b",
+          "externalRef": "hsg270",
+          "title": "Farmwise: your essential guide to health and safety in agriculture (HSG270)",
+          "pageStart": 19,
+          "pageEnd": 20,
+          "vectorRank": 3,
+          "keywordRank": null,
+          "vectorScore": 0.696984353391918,
+          "keywordScore": null,
+          "rrfScore": 0.0158730158730159,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 4,
+          "chunkId": "029ca110-d771-4af1-8388-3feed7d383ff",
+          "externalRef": "l22",
+          "title": "Safe use of work equipment: PUWER 1998 \u2014 ACOP and guidance (L22)",
+          "pageStart": 60,
+          "pageEnd": 61,
+          "vectorRank": 4,
+          "keywordRank": null,
+          "vectorScore": 0.69071457926718,
+          "keywordScore": null,
+          "rrfScore": 0.015625,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 5,
+          "chunkId": "d13581f1-b0f7-4a1c-9c9c-c1e33c18d225",
+          "externalRef": "l22",
+          "title": "Safe use of work equipment: PUWER 1998 \u2014 ACOP and guidance (L22)",
+          "pageStart": 57,
+          "pageEnd": 58,
+          "vectorRank": 5,
+          "keywordRank": null,
+          "vectorScore": 0.687762182221544,
+          "keywordScore": null,
+          "rrfScore": 0.0153846153846154,
+          "rerankScore": null,
+          "relevant": false
+        }
+      ]
+    },
+    {
+      "id": "u02",
+      "question": "How often should a care home review its fire risk assessment?",
+      "answerable": false,
+      "expected": [],
+      "latency_ms": 49,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunkId": "2f11dcfa-99c0-4909-842e-bccacb118114",
+          "externalRef": "hsg65",
+          "title": "Managing for health and safety (HSG65)",
+          "pageStart": 28,
+          "pageEnd": 30,
+          "vectorRank": 1,
+          "keywordRank": null,
+          "vectorScore": 0.684042453765869,
+          "keywordScore": null,
+          "rrfScore": 0.0163934426229508,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 2,
+          "chunkId": "5508ba68-424a-4de5-be77-18b29de29ecf",
+          "externalRef": "hsg65",
+          "title": "Managing for health and safety (HSG65)",
+          "pageStart": 28,
+          "pageEnd": 29,
+          "vectorRank": 2,
+          "keywordRank": null,
+          "vectorScore": 0.68124657869339,
+          "keywordScore": null,
+          "rrfScore": 0.0161290322580645,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 3,
+          "chunkId": "02be9e75-13b4-46b2-808c-695fb867d42d",
+          "externalRef": "hsg65",
+          "title": "Managing for health and safety (HSG65)",
+          "pageStart": 55,
+          "pageEnd": 56,
+          "vectorRank": 3,
+          "keywordRank": null,
+          "vectorScore": 0.678062677383423,
+          "keywordScore": null,
+          "rrfScore": 0.0158730158730159,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 4,
+          "chunkId": "9cf5dc3b-78a7-47a7-b8f1-5866aedf721a",
+          "externalRef": "hsg65",
+          "title": "Managing for health and safety (HSG65)",
+          "pageStart": 27,
+          "pageEnd": 28,
+          "vectorRank": 4,
+          "keywordRank": null,
+          "vectorScore": 0.676927804946899,
+          "keywordScore": null,
+          "rrfScore": 0.015625,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 5,
+          "chunkId": "25f419e2-4849-47c2-882a-4a0d32cade54",
+          "externalRef": "hsg65",
+          "title": "Managing for health and safety (HSG65)",
+          "pageStart": 29,
+          "pageEnd": 31,
+          "vectorRank": 5,
+          "keywordRank": null,
+          "vectorScore": 0.671461125786443,
+          "keywordScore": null,
+          "rrfScore": 0.0153846153846154,
+          "rerankScore": null,
+          "relevant": false
+        }
+      ]
+    },
+    {
+      "id": "u03",
+      "question": "How many hours a week can an employee be required to work under the Working Time Regulations?",
+      "answerable": false,
+      "expected": [],
+      "latency_ms": 46,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunkId": "441d86c5-fa0a-41ae-9cc8-f4ee82229df1",
+          "externalRef": "l153",
+          "title": "Managing health and safety in construction: CDM 2015 guidance on regulations (L153)",
+          "pageStart": 12,
+          "pageEnd": 14,
+          "vectorRank": 1,
+          "keywordRank": null,
+          "vectorScore": 0.712105087261484,
+          "keywordScore": null,
+          "rrfScore": 0.0163934426229508,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 2,
+          "chunkId": "20248de3-5a6f-441c-9cd8-80340368081a",
+          "externalRef": "l22",
+          "title": "Safe use of work equipment: PUWER 1998 \u2014 ACOP and guidance (L22)",
+          "pageStart": 10,
+          "pageEnd": 11,
+          "vectorRank": 2,
+          "keywordRank": null,
+          "vectorScore": 0.704494472936298,
+          "keywordScore": null,
+          "rrfScore": 0.0161290322580645,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 3,
+          "chunkId": "583f590a-2e97-4be0-8f84-93de544d8bde",
+          "externalRef": "indg430",
+          "title": "How to tackle work-related stress: a guide for employers on the Management Standards",
+          "pageStart": 7,
+          "pageEnd": 8,
+          "vectorRank": 3,
+          "keywordRank": null,
+          "vectorScore": 0.70069710007941,
+          "keywordScore": null,
+          "rrfScore": 0.0158730158730159,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 4,
+          "chunkId": "2b77c30b-7e8e-4a7e-a9ec-c7b132d8c1fc",
+          "externalRef": "indg453",
+          "title": "Reporting accidents and incidents at work: a brief guide to RIDDOR",
+          "pageStart": 4,
+          "pageEnd": 5,
+          "vectorRank": 4,
+          "keywordRank": null,
+          "vectorScore": 0.689878025952651,
+          "keywordScore": null,
+          "rrfScore": 0.015625,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 5,
+          "chunkId": "144587bc-8cbd-49ff-bfb0-d4dfdc14c6e2",
+          "externalRef": "l22",
+          "title": "Safe use of work equipment: PUWER 1998 \u2014 ACOP and guidance (L22)",
+          "pageStart": 29,
+          "pageEnd": 30,
+          "vectorRank": 5,
+          "keywordRank": null,
+          "vectorScore": 0.688676632800509,
+          "keywordScore": null,
+          "rrfScore": 0.0153846153846154,
+          "rerankScore": null,
+          "relevant": false
+        }
+      ]
+    },
+    {
+      "id": "u04",
+      "question": "Does HSE recommend exoskeletons to reduce manual handling injuries in warehouses?",
+      "answerable": false,
+      "expected": [],
+      "latency_ms": 59,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunkId": "5ca99f79-b3d5-4d6e-ba96-8b7824ddbc8e",
+          "externalRef": "hsg270",
+          "title": "Farmwise: your essential guide to health and safety in agriculture (HSG270)",
+          "pageStart": 47,
+          "pageEnd": 48,
+          "vectorRank": 1,
+          "keywordRank": null,
+          "vectorScore": 0.725618839263916,
+          "keywordScore": null,
+          "rrfScore": 0.0163934426229508,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 2,
+          "chunkId": "b91d31e3-6857-4a04-8e1a-b42160d7ec1f",
+          "externalRef": "indg143",
+          "title": "Manual handling at work: a brief guide",
+          "pageStart": 1,
+          "pageEnd": 3,
+          "vectorRank": 2,
+          "keywordRank": null,
+          "vectorScore": 0.710662386139107,
+          "keywordScore": null,
+          "rrfScore": 0.0161290322580645,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 3,
+          "chunkId": "9abb7806-b7fa-4cfa-81be-1e497be4c6e4",
+          "externalRef": "hsg270",
+          "title": "Farmwise: your essential guide to health and safety in agriculture (HSG270)",
+          "pageStart": 48,
+          "pageEnd": 48,
+          "vectorRank": 3,
+          "keywordRank": null,
+          "vectorScore": 0.709978580474854,
+          "keywordScore": null,
+          "rrfScore": 0.0158730158730159,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 4,
+          "chunkId": "0f9c91cd-d7cd-4ba0-84ba-958b0ce641da",
+          "externalRef": "indg143",
+          "title": "Manual handling at work: a brief guide",
+          "pageStart": 5,
+          "pageEnd": 6,
+          "vectorRank": 4,
+          "keywordRank": null,
+          "vectorScore": 0.704073786735535,
+          "keywordScore": null,
+          "rrfScore": 0.015625,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 5,
+          "chunkId": "6d8ece0a-8b1f-4a6c-9400-0d4465ea629e",
+          "externalRef": "hsg270",
+          "title": "Farmwise: your essential guide to health and safety in agriculture (HSG270)",
+          "pageStart": 20,
+          "pageEnd": 20,
+          "vectorRank": 5,
+          "keywordRank": null,
+          "vectorScore": 0.69224206301665,
+          "keywordScore": null,
+          "rrfScore": 0.0153846153846154,
+          "rerankScore": null,
+          "relevant": false
+        }
+      ]
+    },
+    {
+      "id": "u05",
+      "question": "What does the Building Safety Act 2022 require for the 'golden thread' of building information?",
+      "answerable": false,
+      "expected": [],
+      "latency_ms": 92,
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunkId": "3703077a-d10d-473b-ad31-db6aa7b3f35d",
+          "externalRef": "indg411",
+          "title": "Need building work done? A short guide for clients on the CDM Regulations 2015",
+          "pageStart": 5,
+          "pageEnd": 6,
+          "vectorRank": 1,
+          "keywordRank": null,
+          "vectorScore": 0.682921290397649,
+          "keywordScore": null,
+          "rrfScore": 0.0163934426229508,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 2,
+          "chunkId": "a8d7abf8-4a15-41cc-bea7-ce24b56c7151",
+          "externalRef": "l153",
+          "title": "Managing health and safety in construction: CDM 2015 guidance on regulations (L153)",
+          "pageStart": 20,
+          "pageEnd": 21,
+          "vectorRank": 2,
+          "keywordRank": null,
+          "vectorScore": 0.680250645898341,
+          "keywordScore": null,
+          "rrfScore": 0.0161290322580645,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 3,
+          "chunkId": "9b92c4e6-0152-4843-b393-5a96d26e9b8c",
+          "externalRef": "l153",
+          "title": "Managing health and safety in construction: CDM 2015 guidance on regulations (L153)",
+          "pageStart": 48,
+          "pageEnd": 49,
+          "vectorRank": 3,
+          "keywordRank": null,
+          "vectorScore": 0.677839557995771,
+          "keywordScore": null,
+          "rrfScore": 0.0158730158730159,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 4,
+          "chunkId": "b58267c2-5b8f-4e45-9b5a-38c13a4360fa",
+          "externalRef": "l153",
+          "title": "Managing health and safety in construction: CDM 2015 guidance on regulations (L153)",
+          "pageStart": 19,
+          "pageEnd": 20,
+          "vectorRank": 4,
+          "keywordRank": null,
+          "vectorScore": 0.673381805419927,
+          "keywordScore": null,
+          "rrfScore": 0.015625,
+          "rerankScore": null,
+          "relevant": false
+        },
+        {
+          "rank": 5,
+          "chunkId": "b188e2ea-305f-4a03-854e-23dd544b1f08",
+          "externalRef": "l153",
+          "title": "Managing health and safety in construction: CDM 2015 guidance on regulations (L153)",
+          "pageStart": 82,
+          "pageEnd": 82,
+          "vectorRank": 5,
+          "keywordRank": null,
+          "vectorScore": 0.673307101327605,
+          "keywordScore": null,
+          "rrfScore": 0.0153846153846154,
+          "rerankScore": null,
+          "relevant": false
+        }
+      ]
+    }
+  ]
+}

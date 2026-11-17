@@ -11,6 +11,8 @@ services:
     ports:
       - "8000:8000"
     restart: unless-stopped
+    # Peak ~1.9 GB embedding the largest PDF; the cap keeps a regression from taking down the VM.
+    mem_limit: 3g
 
   # Optional: local MongoDB Atlas (supports $vectorSearch + Atlas Search) for the
   # alternative vector backend. Start with: docker compose --profile mongo up -d mongodb

@@ -21,7 +21,9 @@ class Settings(BaseSettings):
 
     chunk_max_tokens: int = 500
     chunk_overlap_tokens: int = 75
-    embed_batch_size: int = 32
+    # Measured on the largest corpus PDF (108 chunks): batch 32 peaked at 3.6 GB RSS and was
+    # OOM-killed; batch 8 with the ONNX CPU arena disabled peaks at ~1.9 GB at the same speed.
+    embed_batch_size: int = 8
     http_timeout_seconds: float = 30.0
 
 

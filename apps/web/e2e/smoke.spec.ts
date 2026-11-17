@@ -1,11 +1,11 @@
-import { expect, test, type Page } from "@playwright/test";
+import { expect, test } from "@playwright/test";
+import { signIn } from "./helpers";
 
 /**
  * Smoke: sign in (magic link via local Mailpit) → upload → ask → see citation.
  * The ingest + answer half needs real provider keys and a running ingest service;
  * set E2E_FULL=1 to run it. Without it, the test stops after upload is accepted.
  */
-const MAILPIT = process.env.MAILPIT_URL ?? "http://127.0.0.1:55324";
 const FULL = process.env.E2E_FULL === "1";
 
 /** Minimal valid one-page PDF with real text (no deps). */
@@ -29,30 +29,6 @@ function tinyPdf(lines: string[]): Buffer {
   pdf += `xref\n0 ${objs.length + 1}\n0000000000 65535 f \n${offsets.map((o) => `${String(o).padStart(10, "0")} 00000 n \n`).join("")}`;
   pdf += `trailer\n<< /Size ${objs.length + 1} /Root 1 0 R >>\nstartxref\n${xref}\n%%EOF`;
   return Buffer.from(pdf, "latin1");
-}
-
-async function magicLink(email: string): Promise<string> {
-  for (let i = 0; i < 30; i++) {
-    const res = await fetch(`${MAILPIT}/api/v1/search?query=${encodeURIComponent(`to:"${email}"`)}`);
-    const body = (await res.json()) as { messages?: { ID: string }[] };
-    const id = body.messages?.[0]?.ID;
-    if (id) {
-      const msg = (await (await fetch(`${MAILPIT}/api/v1/message/${id}`)).json()) as { Text?: string; HTML?: string };
-      const m = (msg.Text ?? msg.HTML ?? "").match(/https?:\/\/[^\s"<>)]+\/auth\/v1\/verify[^\s"<>)]+/);
-      if (m) return m[0].replace(/&amp;/g, "&");
-    }
-    await new Promise((r) => setTimeout(r, 1000));
-  }
-  throw new Error("magic link email not received");
-}
-
-async function signIn(page: Page, email: string) {
-  await page.goto("/login");
-  await page.getByLabel("Work email").fill(email);
-  await page.getByRole("button", { name: /sign-in link/i }).click();
-  await expect(page.getByText(/check/i)).toBeVisible();
-  await page.goto(await magicLink(email));
-  await expect(page).toHaveURL(/\/library/);
 }
 
 test("sign in → upload → ask → see citation", async ({ page }) => {

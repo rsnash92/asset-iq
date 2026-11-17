@@ -1,4 +1,81 @@
 {
-  "generated_at": "2026-11-17T12:23:36+00:00",
-  "runs": []
+  "generated_at": "2026-11-17T14:52:17+00:00",
+  "runs": [
+    {
+      "config": "pgvector-vector",
+      "backend": "pgvector",
+      "mode": "vector",
+      "rerank": false,
+      "k": 5,
+      "n_questions": 35,
+      "retrieval": {
+        "hit_at_5": 0.9666666666666667,
+        "doc_hit_at_5": 1.0,
+        "mrr": 0.7916666666666666
+      },
+      "answer": null,
+      "cost_usd": 0.0,
+      "latency_ms_p50": 50.0,
+      "latency_ms_p95": 82.89999999999996,
+      "run_file": "2026-11-17-pgvector-vector.json"
+    },
+    {
+      "config": "pgvector-keyword",
+      "backend": "pgvector",
+      "mode": "keyword",
+      "rerank": false,
+      "k": 5,
+      "n_questions": 35,
+      "retrieval": {
+        "hit_at_5": 0.9333333333333333,
+        "doc_hit_at_5": 0.9666666666666667,
+        "mrr": 0.7833333333333333
+      },
+      "answer": null,
+      "cost_usd": 0.0,
+      "latency_ms_p50": 33.0,
+      "latency_ms_p95": 39.3,
+      "run_file": "2026-11-17-pgvector-keyword.json"
+    },
+    {
+      "config": "pgvector-hybrid",
+      "backend": "pgvector",
+      "mode": "hybrid",
+      "rerank": false,
+      "k": 5,
+      "n_questions": 35,
+      "retrieval": {
+        "hit_at_5": 0.9666666666666667,
+        "doc_hit_at_5": 0.9666666666666667,
+        "mrr": 0.8316666666666667
+      },
+      "answer": {
+        "faithfulness": 0.942,
+        "citation_correctness": 0.9191428571428572,
+        "refusal_accuracy": 0.9714285714285714
+      },
+      "cost_usd": 0.462077,
+      "latency_ms_p50": 90.0,
+      "latency_ms_p95": 121.6,
+      "run_file": "2026-11-17-pgvector-hybrid.json"
+    },
+    {
+      "config": "mongodb-hybrid",
+      "backend": "mongodb",
+      "mode": "hybrid",
+      "rerank": false,
+      "k": 5,
+      "n_questions": 35,
+      "retrieval": {
+        "hit_at_5": 0.9666666666666667,
+        "doc_hit_at_5": 1.0,
+        "mrr": 0.8666666666666667
+      },
+      "answer": null,
+      "cost_usd": 0.0,
+      "latency_ms_p50": 47.0,
+      "latency_ms_p95": 77.79999999999998,
+      "run_file": "2026-11-17-mongodb-hybrid.json"
+    }
+  ]
 }

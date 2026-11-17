@@ -3,12 +3,17 @@ import { z } from "zod";
 export const CONTENT_TYPES = ["whitepaper", "case_study", "webinar", "ebook", "guide", "report", "other"] as const;
 export type ContentType = (typeof CONTENT_TYPES)[number];
 
+/** Canonical industry key: "Oil and Gas" -> "oil-and-gas". Same rule as the upload form. */
+export function normaliseIndustry(s: string): string {
+  return s.trim().toLowerCase().replace(/[\s_]+/g, "-");
+}
+
 const isoDate = z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "Expected YYYY-MM-DD");
 
 export const FiltersSchema = z
   .object({
     contentTypes: z.array(z.enum(CONTENT_TYPES)).max(7).optional(),
-    industries: z.array(z.string().min(1).max(60)).max(20).optional(),
+    industries: z.array(z.string().min(1).max(60).transform(normaliseIndustry)).max(20).optional(),
     after: isoDate.optional(),
     before: isoDate.optional(),
     documentIds: z.array(z.string().uuid()).max(50).optional(),
